@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}Categorias{% endblock %}
+{% block content %}
+  <h2>Categorias</h2>
+  <div class="grid">
+    {% for c in categorias %}
+      <article>
+        <header>{{ c.nome }}</header>
+        <footer>
+          <a href="{% url 'kiosk_produtos' %}?categoria={{ c.id }}" role="button">Ver produtos</a>
+        </footer>
+      </article>
+    {% empty %}
+      <p>Nenhuma categoria ativa.</p>
+    {% endfor %}
+  </div>
+  <hr>
+  <a href="{% url 'kiosk_carrinho' %}">Ir para o carrinho</a>
+{% endblock %}

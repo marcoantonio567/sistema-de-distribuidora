@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}Opções{% endblock %}
+{% block content %}
+  <h2>Opções para {{ produto.marca.nome }} {{ produto.nome }}</h2>
+  <p>Selecione extras quando disponíveis e adicione ao carrinho pela página de produtos.</p>
+  {% for g in grupos %}
+    <h3>{{ g.nome }}</h3>
+    <ul>
+      {% for o in g.opcoes.all %}
+      <li>{{ o.nome }} (+R$ {{ o.preco_extra }})</li>
+      {% endfor %}
+    </ul>
+  {% empty %}
+    <p>Sem opções adicionais.</p>
+  {% endfor %}
+{% endblock %}

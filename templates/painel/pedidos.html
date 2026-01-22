@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}Painel - Pedidos{% endblock %}
+{% block content %}
+  <h2>Pedidos</h2>
+  <table>
+    <thead><tr><th>#</th><th>Cliente</th><th>Telefone</th><th>Tipo</th><th>Status</th><th>Total</th><th>Criado</th><th></th></tr></thead>
+    <tbody>
+      {% for p in pedidos %}
+        <tr>
+          <td>{{ p.id }}</td>
+          <td>{{ p.nome_cliente }}</td>
+          <td>{{ p.telefone }}</td>
+          <td>{{ p.tipo_atendimento }}</td>
+          <td>{{ p.status }}</td>
+          <td>R$ {{ p.total }}</td>
+          <td>{{ p.criado_em }}</td>
+          <td><a href="{% url 'painel_pedido_detalhe' p.id %}">Detalhe</a></td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="8">Sem pedidos.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}

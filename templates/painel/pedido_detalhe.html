@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Painel - Pedido{% endblock %}
+{% block content %}
+  <h2>Pedido #{{ pedido.id }}</h2>
+  <p>{{ pedido.nome_cliente }} — {{ pedido.telefone }} ({{ pedido.tipo_atendimento }})</p>
+  {% if pedido.endereco %}
+    <p>{{ pedido.endereco.rua }}, {{ pedido.endereco.numero }} — {{ pedido.endereco.bairro }}{% if pedido.endereco.referencia %} ({{ pedido.endereco.referencia }}){% endif %}</p>
+  {% endif %}
+  <h3>Itens</h3>
+  <ul>
+    {% for item in pedido.itens.all %}
+      <li>{{ item.quantidade }}x {{ item.produto }} — R$ {{ item.subtotal }}</li>
+    {% endfor %}
+  </ul>
+  <p><strong>Total: R$ {{ pedido.total }}</strong></p>
+  <h3>Status</h3>
+  <p>Atual: {{ pedido.status }}</p>
+  <div>
+    {% for s in "novo,em_preparo,pronto,entregue,cancelado".split(",") %}
+      <a href="{% url 'painel_pedido_status' pedido.id s %}" role="button" class="{% if pedido.status == s %}secondary{% endif %}">{{ s }}</a>
+    {% endfor %}
+  </div>
+  <hr>
+  <a href="{% url 'painel_pedidos' %}">Voltar à lista</a>
+{% endblock %}

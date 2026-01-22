@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Carrinho{% endblock %}
+{% block content %}
+  <h2>Carrinho</h2>
+  <table>
+    <thead><tr><th>Item</th><th>Qtd</th><th>Unitário</th><th>Subtotal</th><th></th></tr></thead>
+    <tbody>
+      {% for item in cart.itens %}
+      <tr>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.quantidade }}</td>
+        <td>R$ {{ item.preco_unitario }}</td>
+        <td>R$ {{ item.subtotal }}</td>
+        <td>
+          <form method="post">{% csrf_token %}
+            <input type="hidden" name="action" value="remove">
+            <input type="hidden" name="index" value="{{ forloop.counter0 }}">
+            <button type="submit" class="secondary">Remover</button>
+          </form>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="5">Seu carrinho está vazio.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+  <p><strong>Total: R$ {{ total }}</strong></p>
+  <a href="{% url 'kiosk_checkout' %}" role="button" {% if cart.itens|length == 0 %}aria-disabled="true"{% endif %}>Continuar</a>
+  <a href="{% url 'kiosk_categorias' %}" class="secondary">Adicionar mais itens</a>
+{% endblock %}

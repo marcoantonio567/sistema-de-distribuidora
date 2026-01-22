@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Início{% endblock %}
+{% block content %}
+  <h2>Bem-vindo à Distribuidora</h2>
+  <p>Selecione o tipo de atendimento:</p>
+  <form method="get" action="{% url 'kiosk_categorias' %}">
+    <a href="{% url 'kiosk_categorias' %}" role="button">Retirada</a>
+  </form>
+  <a href="{% url 'kiosk_categorias' %}" role="button" class="secondary">Entrega</a>
+  <hr>
+  <a href="{% url 'kiosk_carrinho' %}">Ver carrinho ({{ cart.itens|length }})</a>
+{% endblock %}
