@@ -1,0 +1,85 @@
+INFO 2026-01-23 11:31:39,225 autoreload 3008 4100 Watching for file changes with StatReloader
+INFO 2026-01-23 11:35:31,070 autoreload 5348 7676 Watching for file changes with StatReloader
+INFO 2026-01-23 11:35:43,846 basehttp 5348 16060 "GET /?ide_webview_request_time=1769178943136 HTTP/1.1" 200 21236
+INFO 2026-01-23 11:35:44,081 basehttp 5348 16060 "GET /static/css/style.css HTTP/1.1" 200 6393
+INFO 2026-01-23 11:35:44,094 basehttp 5348 2532 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 12621
+INFO 2026-01-23 11:35:44,095 basehttp 5348 11128 "GET /static/js/main.js HTTP/1.1" 200 16051
+INFO 2026-01-23 11:35:44,095 basehttp 5348 16604 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 13404
+INFO 2026-01-23 11:35:44,844 basehttp 5348 2532 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+INFO 2026-01-23 11:35:44,882 basehttp 5348 2532 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4527
+WARNING 2026-01-23 11:35:45,166 log 5348 16604 Not Found: /@vite/client
+WARNING 2026-01-23 11:35:45,168 basehttp 5348 16604 "GET /@vite/client HTTP/1.1" 404 12124
+INFO 2026-01-23 11:35:46,043 basehttp 5348 2532 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:07,759 basehttp 5348 17560 "GET / HTTP/1.1" 200 21195
+INFO 2026-01-23 11:36:07,867 basehttp 5348 17560 "GET /static/css/style.css HTTP/1.1" 200 6393
+INFO 2026-01-23 11:36:07,944 basehttp 5348 17560 "GET /static/js/main.js HTTP/1.1" 200 16051
+INFO 2026-01-23 11:36:07,946 basehttp 5348 15028 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 12621
+INFO 2026-01-23 11:36:07,956 basehttp 5348 23708 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 13404
+INFO 2026-01-23 11:36:08,571 basehttp 5348 23708 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+INFO 2026-01-23 11:36:08,669 basehttp 5348 15028 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4527
+INFO 2026-01-23 11:36:08,987 basehttp 5348 17560 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:15,004 basehttp 5348 9496 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:15,244 basehttp 5348 9496 "GET /__debug__/history_sidebar/?store_id=e904cdde964c45479fcd78504eea3fcf HTTP/1.1" 200 9389
+INFO 2026-01-23 11:36:20,464 basehttp 5348 26056 "GET /__debug__/render_panel/?store_id=39865d4bd75e49b382e09783e61b6b14&panel_id=VersionsPanel HTTP/1.1" 200 851
+INFO 2026-01-23 11:36:22,870 basehttp 5348 26056 "GET /__debug__/render_panel/?store_id=39865d4bd75e49b382e09783e61b6b14&panel_id=HistoryPanel HTTP/1.1" 200 10220
+INFO 2026-01-23 11:36:22,890 basehttp 5348 26056 "GET /static/debug_toolbar/js/history.js HTTP/1.1" 200 3330
+ERROR 2026-01-23 11:36:26,089 log 5348 26056 Internal Server Error: /products/categories/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: products/category_list.html, products/category_list.html
+ERROR 2026-01-23 11:36:26,115 basehttp 5348 26056 "GET /products/categories/ HTTP/1.1" 500 104755
+INFO 2026-01-23 11:36:26,222 basehttp 5348 26056 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:26,238 basehttp 5348 15684 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:26,238 basehttp 5348 26056 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:26,454 basehttp 5348 26056 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:31,690 basehttp 5348 2664 "GET /cart/ HTTP/1.1" 200 20221
+INFO 2026-01-23 11:36:32,056 basehttp 5348 2664 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:35,026 basehttp 5348 2664 "GET /products/ HTTP/1.1" 200 20527
+INFO 2026-01-23 11:36:35,165 basehttp 5348 2664 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:36,892 basehttp 5348 2664 "GET /products/ HTTP/1.1" 200 20525
+INFO 2026-01-23 11:36:37,028 basehttp 5348 2664 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-23 11:36:38,553 log 5348 24896 Internal Server Error: /products/categories/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.12_qbz5n2kfra8p0\LocalCache\local-packages\Python312\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: products/category_list.html, products/category_list.html
+ERROR 2026-01-23 11:36:38,584 basehttp 5348 24896 "GET /products/categories/ HTTP/1.1" 500 104763
+INFO 2026-01-23 11:36:41,187 basehttp 5348 24896 "GET / HTTP/1.1" 200 21194
+INFO 2026-01-23 11:36:41,237 basehttp 5348 24896 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:41,244 basehttp 5348 25628 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:41,250 basehttp 5348 24896 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:41,286 basehttp 5348 25628 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+INFO 2026-01-23 11:36:41,369 basehttp 5348 24896 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:44,976 basehttp 5348 14912 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-23 11:36:45,224 basehttp 5348 14912 "GET /__debug__/history_sidebar/?store_id=711a94a43c30413585f16d8dec283ce1 HTTP/1.1" 200 9389

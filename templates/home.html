@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+
+{% block title %}Início - Sistema de Autoatendimento{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="hero-section bg-primary text-white rounded p-5 mb-4">
+            <h1 class="display-4">Bem-vindo ao Sistema de Autoatendimento</h1>
+            <p class="lead">Navegue por nosso catálogo completo de produtos organizados por categorias.</p>
+            <a href="{% url 'products:product_list' %}" class="btn btn-light btn-lg">
+                <i class="bi bi-grid-3x3-gap"></i> Ver Produtos
+            </a>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-tags display-4 text-primary mb-3"></i>
+                <h5 class="card-title">Categorias</h5>
+                <p class="card-text">Explore produtos organizados por categorias hierárquicas.</p>
+                <a href="{% url 'products:category_list' %}" class="btn btn-primary">
+                    Ver Categorias
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-search display-4 text-success mb-3"></i>
+                <h5 class="card-title">Busca Avançada</h5>
+                <p class="card-text">Encontre produtos rapidamente com nossa busca inteligente.</p>
+                <form method="get" action="{% url 'products:product_list' %}">
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="q" placeholder="Buscar produtos...">
+                        <button class="btn btn-success" type="submit">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-4 mb-4">
+        <div class="card h-100">
+            <div class="card-body text-center">
+                <i class="bi bi-cart3 display-4 text-warning mb-3"></i>
+                <h5 class="card-title">Carrinho</h5>
+                <p class="card-text">Gerencie seus produtos e finalize sua compra.</p>
+                <a href="{% url 'cart:cart_detail' %}" class="btn btn-warning">
+                    Ver Carrinho
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <h2 class="mb-4">Como Funciona</h2>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="text-center">
+            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">1</span>
+            </div>
+            <h6>Navegue</h6>
+            <p class="small text-muted">Explore nosso catálogo por categorias</p>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="text-center">
+            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">2</span>
+            </div>
+            <h6>Adicione</h6>
+            <p class="small text-muted">Coloque produtos no seu carrinho</p>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="text-center">
+            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">3</span>
+            </div>
+            <h6>Finalize</h6>
+            <p class="small text-muted">Complete seu pedido com seus dados</p>
+        </div>
+    </div>
+    
+    <div class="col-md-3 mb-3">
+        <div class="text-center">
+            <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 60px; height: 60px;">
+                <span class="h4 mb-0">4</span>
+            </div>
+            <h6>Receba</h6>
+            <p class="small text-muted">Acompanhe seu pedido até a entrega</p>
+        </div>
+    </div>
+</div>
+{% endblock %}

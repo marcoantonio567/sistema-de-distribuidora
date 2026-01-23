@@ -1,2 +1,6 @@
 .trae/
+venv/
+.env
+technical_documentation.md
 db.sqlite3
+__pycache__/
