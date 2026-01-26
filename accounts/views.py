@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic import View, TemplateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth import login
 from django.contrib.auth.models import User
 from django.contrib import messages
@@ -10,6 +11,7 @@ from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from orders.models import Order
 from .models import UserProfile
+from .forms import UserUpdateForm, UserProfileForm
 import logging
 
 logger = logging.getLogger('accounts')
@@ -117,25 +119,43 @@ class RegisterView(View):
             return render(request, 'accounts/register.html')
 
 
-class ProfileView(TemplateView):
+class ProfileView(LoginRequiredMixin, TemplateView):
     """View for user profile"""
     template_name = 'accounts/profile.html'
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         
-        if self.request.user.is_authenticated:
-            user = self.request.user
-            context['user'] = user
-            
-            # Get user orders
-            context['orders'] = Order.objects.filter(
-                user=user
-            ).select_related('shipping_address').prefetch_related('items__product').order_by('-created_at')[:10]
-            
-            # Get order statistics
-            context['total_orders'] = Order.objects.filter(user=user).count()
-            context['pending_orders'] = Order.objects.filter(user=user, status='pending').count()
-            context['completed_orders'] = Order.objects.filter(user=user, status='delivered').count()
+        user = self.request.user
+        context['user'] = user
+        context['user_form'] = UserUpdateForm(instance=user)
+        profile = getattr(user, 'profile', None)
+        context['profile_form'] = UserProfileForm(instance=profile)
+        
+        context['orders'] = Order.objects.filter(
+            user=user
+        ).select_related('shipping_address').prefetch_related('items__product').order_by('-created_at')[:10]
+        
+        context['total_orders'] = Order.objects.filter(user=user).count()
+        context['pending_orders'] = Order.objects.filter(user=user, status='pending').count()
+        context['completed_orders'] = Order.objects.filter(user=user, status='delivered').count()
         
         return context
+
+    def post(self, request, *args, **kwargs):
+        user = request.user
+        profile = getattr(user, 'profile', None)
+        user_form = UserUpdateForm(request.POST, instance=user)
+        profile_form = UserProfileForm(request.POST, instance=profile)
+        if user_form.is_valid() and profile_form.is_valid():
+            user_form.save()
+            profile_obj = profile_form.save(commit=False)
+            profile_obj.user = user
+            profile_obj.save()
+            messages.success(request, 'Perfil atualizado com sucesso.')
+            return redirect('accounts:profile')
+        messages.error(request, 'Corrija os campos destacados e tente novamente.')
+        context = self.get_context_data()
+        context['user_form'] = user_form
+        context['profile_form'] = profile_form
+        return render(request, self.template_name, context)

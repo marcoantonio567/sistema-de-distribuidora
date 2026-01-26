@@ -28,6 +28,105 @@
       </div>
     </div>
 
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-light">
+        <h6 class="mb-0"><i class="bi bi-pencil-square"></i> Editar Perfil</h6>
+      </div>
+      <div class="card-body">
+        <form method="post" action="{% url 'accounts:profile' %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label class="form-label">Nome de usuário</label>
+            <input type="text" name="username" class="form-control {% if user_form.errors.username %}is-invalid{% endif %}" value="{{ user_form.username.value|default:user.username }}">
+            {% if user_form.errors.username %}<div class="invalid-feedback">{{ user_form.errors.username.0 }}</div>{% endif %}
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Nome</label>
+                <input type="text" name="first_name" class="form-control {% if user_form.errors.first_name %}is-invalid{% endif %}" value="{{ user_form.first_name.value|default:user.first_name }}">
+                {% if user_form.errors.first_name %}<div class="invalid-feedback">{{ user_form.errors.first_name.0 }}</div>{% endif %}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Sobrenome</label>
+                <input type="text" name="last_name" class="form-control {% if user_form.errors.last_name %}is-invalid{% endif %}" value="{{ user_form.last_name.value|default:user.last_name }}">
+                {% if user_form.errors.last_name %}<div class="invalid-feedback">{{ user_form.errors.last_name.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control {% if user_form.errors.email %}is-invalid{% endif %}" value="{{ user_form.email.value|default:user.email }}">
+            {% if user_form.errors.email %}<div class="invalid-feedback">{{ user_form.errors.email.0 }}</div>{% endif %}
+          </div>
+          <hr>
+          <div class="mb-3">
+            <label class="form-label">Telefone</label>
+            <input type="text" name="phone" id="phone" class="form-control {% if profile_form.errors.phone %}is-invalid{% endif %}" value="{{ profile_form.phone.value|default:user.profile.phone }}">
+            {% if profile_form.errors.phone %}<div class="invalid-feedback">{{ profile_form.errors.phone.0 }}</div>{% endif %}
+          </div>
+          <div class="row">
+            <div class="col-md-8">
+              <div class="mb-3">
+                <label class="form-label">Rua</label>
+                <input type="text" name="address_street" class="form-control {% if profile_form.errors.address_street %}is-invalid{% endif %}" value="{{ profile_form.address_street.value|default:user.profile.address_street }}">
+                {% if profile_form.errors.address_street %}<div class="invalid-feedback">{{ profile_form.errors.address_street.0 }}</div>{% endif %}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="mb-3">
+                <label class="form-label">Número</label>
+                <input type="text" name="address_number" class="form-control {% if profile_form.errors.address_number %}is-invalid{% endif %}" value="{{ profile_form.address_number.value|default:user.profile.address_number }}">
+                {% if profile_form.errors.address_number %}<div class="invalid-feedback">{{ profile_form.errors.address_number.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Complemento</label>
+            <input type="text" name="address_complement" class="form-control {% if profile_form.errors.address_complement %}is-invalid{% endif %}" value="{{ profile_form.address_complement.value|default:user.profile.address_complement }}">
+            {% if profile_form.errors.address_complement %}<div class="invalid-feedback">{{ profile_form.errors.address_complement.0 }}</div>{% endif %}
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Bairro</label>
+                <input type="text" name="neighborhood" class="form-control {% if profile_form.errors.neighborhood %}is-invalid{% endif %}" value="{{ profile_form.neighborhood.value|default:user.profile.neighborhood }}">
+                {% if profile_form.errors.neighborhood %}<div class="invalid-feedback">{{ profile_form.errors.neighborhood.0 }}</div>{% endif %}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Cidade</label>
+                <input type="text" name="city" class="form-control {% if profile_form.errors.city %}is-invalid{% endif %}" value="{{ profile_form.city.value|default:user.profile.city }}">
+                {% if profile_form.errors.city %}<div class="invalid-feedback">{{ profile_form.errors.city.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">Estado (UF)</label>
+                <input type="text" name="state" class="form-control {% if profile_form.errors.state %}is-invalid{% endif %}" value="{{ profile_form.state.value|default:user.profile.state }}" maxlength="2">
+                {% if profile_form.errors.state %}<div class="invalid-feedback">{{ profile_form.errors.state.0 }}</div>{% endif %}
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="mb-3">
+                <label class="form-label">CEP</label>
+                <input type="text" name="zip_code" id="zip_code" class="form-control {% if profile_form.errors.zip_code %}is-invalid{% endif %}" value="{{ profile_form.zip_code.value|default:user.profile.zip_code }}">
+                {% if profile_form.errors.zip_code %}<div class="invalid-feedback">{{ profile_form.errors.zip_code.0 }}</div>{% endif %}
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-primary">Salvar alterações</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
     <div class="card shadow-sm">
       <div class="card-header bg-secondary text-white">
         <h6 class="mb-0"><i class="bi bi-graph-up"></i> Estatísticas</h6>
@@ -96,4 +195,74 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      var value = e.target.value.replace(/\D/g, '');
+      if (value.length > 11) value = value.substring(0, 11);
+      if (value.length > 6) {
+        value = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7);
+      } else if (value.length > 2) {
+        value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+      } else if (value.length > 0) {
+        value = '(' + value;
+      }
+      e.target.value = value;
+      e.target.classList.remove('is-invalid');
+    });
+  }
+  var zipInput = document.getElementById('zip_code');
+  if (zipInput) {
+    zipInput.addEventListener('input', function(e) {
+      var v = e.target.value.replace(/\D/g, '').slice(0, 8);
+      if (v.length > 5) {
+        v = v.slice(0, 5) + '-' + v.slice(5);
+      }
+      e.target.value = v;
+      e.target.classList.remove('is-invalid');
+    });
+  }
+  var emailInput = document.getElementById('email');
+  var form = document.querySelector('form[action$="profile/"]');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      var isValid = true;
+      if (emailInput && emailInput.value) {
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+          emailInput.classList.add('is-invalid');
+          isValid = false;
+        }
+      }
+      if (phoneInput && phoneInput.value) {
+        var digits = phoneInput.value.replace(/\D/g, '');
+        if (digits.length < 10) {
+          phoneInput.classList.add('is-invalid');
+          isValid = false;
+        }
+      }
+      if (zipInput && zipInput.value) {
+        var cepDigits = zipInput.value.replace(/\D/g, '');
+        if (cepDigits.length !== 8) {
+          zipInput.classList.add('is-invalid');
+          isValid = false;
+        }
+      }
+      if (!isValid) {
+        e.preventDefault();
+      }
+    });
+    form.querySelectorAll('input').forEach(function(el) {
+      el.addEventListener('input', function() {
+        el.classList.remove('is-invalid');
+      });
+    });
+  }
+});
+</script>
 {% endblock %}
