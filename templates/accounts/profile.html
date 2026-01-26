@@ -14,6 +14,17 @@
         <div class="mb-2"><strong>Usuário:</strong> {{ user.username }}</div>
         <div class="mb-2"><strong>Nome:</strong> {{ user.first_name }} {{ user.last_name }}</div>
         <div class="mb-2"><strong>Email:</strong> {{ user.email }}</div>
+        <hr>
+        <h6 class="text-muted">Endereço</h6>
+        {% if user.profile %}
+          <div class="mb-1">{{ user.profile.address_street }} {% if user.profile.address_number %}, {{ user.profile.address_number }}{% endif %}</div>
+          {% if user.profile.address_complement %}<div class="mb-1">{{ user.profile.address_complement }}</div>{% endif %}
+          <div class="mb-1">{{ user.profile.neighborhood }}</div>
+          <div class="mb-1">{{ user.profile.city }}{% if user.profile.state %} - {{ user.profile.state }}{% endif %}</div>
+          <div class="mb-1">CEP: {{ user.profile.zip_code }}</div>
+        {% else %}
+          <div class="text-muted">Endereço não informado.</div>
+        {% endif %}
       </div>
     </div>
 
