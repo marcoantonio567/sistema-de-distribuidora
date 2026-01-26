@@ -1,0 +1,117 @@
+{% extends "painel/base_painel.html" %}
+{% load static %}
+
+{% block painel_content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Produtos</h2>
+  <a href="{% url 'painel:produtos_create' %}" class="btn btn-primary">Novo Produto</a>
+</div>
+
+<form method="get" class="row g-3 mb-3">
+  <div class="col-md-4">
+    <input type="text" name="q" value="{{ q }}" class="form-control" placeholder="Buscar por nome, descrição ou SKU">
+  </div>
+  <div class="col-md-3">
+    <select name="categoria" class="form-select">
+      <option value="">Categoria</option>
+      {% for c in categorias %}
+        <option value="{{ c.id }}" {% if f_categoria == c.id|stringformat:'s' %}selected{% endif %}>{{ c.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-3">
+    <select name="marca" class="form-select">
+      <option value="">Marca</option>
+      {% for m in marcas %}
+        <option value="{{ m.id }}" {% if f_marca == m.id|stringformat:'s' %}selected{% endif %}>{{ m.name }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <div class="col-md-2">
+    <select name="ativo" class="form-select">
+      <option value="">Ativo?</option>
+      <option value="1" {% if f_ativo == '1' %}selected{% endif %}>Sim</option>
+      <option value="0" {% if f_ativo == '0' %}selected{% endif %}>Não</option>
+    </select>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-secondary">Aplicar Filtros</button>
+  </div>
+  {% csrf_token %}
+  </form>
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Marca</th>
+        <th>Preço</th>
+        <th>Unidade</th>
+        <th>Estoque</th>
+        <th>Ativo</th>
+        <th>Destaque</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for p in produtos %}
+      <tr>
+        <td>{{ p.name }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.brand|default:'—' }}</td>
+        <td>R$ {{ p.price }}</td>
+        <td>{{ p.get_unit_display|default:'—' }}</td>
+        <td>{{ p.stock_quantity }}</td>
+        <td>
+          <form method="post" action="{% url 'painel:produtos_toggle_active' p.id %}">
+            {% csrf_token %}
+            <button class="btn btn-sm {% if p.is_active %}btn-success{% else %}btn-outline-secondary{% endif %}">
+              {% if p.is_active %}Ativo{% else %}Inativo{% endif %}
+            </button>
+          </form>
+        </td>
+        <td>
+          <form method="post" action="{% url 'painel:produtos_toggle_featured' p.id %}">
+            {% csrf_token %}
+            <button class="btn btn-sm {% if p.is_featured %}btn-warning{% else %}btn-outline-secondary{% endif %}">
+              {% if p.is_featured %}Destaque{% else %}Normal{% endif %}
+            </button>
+          </form>
+        </td>
+        <td class="d-flex gap-2">
+          <a href="{% url 'painel:produtos_update' p.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
+          <a href="{% url 'painel:produtos_delete' p.id %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+          <form method="post" action="{% url 'painel:produtos_adjust_stock' p.id %}" class="d-inline-flex align-items-center gap-1">
+            {% csrf_token %}
+            <input type="number" name="delta" class="form-control form-control-sm" placeholder="+/-" style="width: 80px;">
+            <button class="btn btn-sm btn-outline-dark">Ajustar</button>
+          </form>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="8" class="text-center">Nenhum produto encontrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if is_paginated %}
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}">Anterior</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">Anterior</span></li>
+    {% endif %}
+    <li class="page-item disabled"><span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span></li>
+    {% if page_obj.has_next %}
+      <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}">Próxima</a></li>
+    {% else %}
+      <li class="page-item disabled"><span class="page-link">Próxima</span></li>
+    {% endif %}
+  </ul>
+  </nav>
+{% endif %}
+{% endblock %}

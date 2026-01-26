@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Meu Perfil{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-md-4">
+    <div class="card shadow-sm mb-4">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0"><i class="bi bi-person"></i> Informações do Usuário</h5>
+      </div>
+      <div class="card-body">
+        <div class="mb-2"><strong>Usuário:</strong> {{ user.username }}</div>
+        <div class="mb-2"><strong>Nome:</strong> {{ user.first_name }} {{ user.last_name }}</div>
+        <div class="mb-2"><strong>Email:</strong> {{ user.email }}</div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm">
+      <div class="card-header bg-secondary text-white">
+        <h6 class="mb-0"><i class="bi bi-graph-up"></i> Estatísticas</h6>
+      </div>
+      <div class="card-body">
+        <div class="d-flex justify-content-between mb-2">
+          <span>Total de pedidos</span>
+          <span class="badge bg-primary">{{ total_orders }}</span>
+        </div>
+        <div class="d-flex justify-content-between mb-2">
+          <span>Pedidos pendentes</span>
+          <span class="badge bg-warning text-dark">{{ pending_orders }}</span>
+        </div>
+        <div class="d-flex justify-content-between">
+          <span>Pedidos entregues</span>
+          <span class="badge bg-success">{{ completed_orders }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-8">
+    <div class="card shadow-sm">
+      <div class="card-header bg-light">
+        <h5 class="mb-0"><i class="bi bi-box"></i> Últimos Pedidos</h5>
+      </div>
+      <div class="card-body">
+        {% if orders %}
+          <div class="table-responsive">
+            <table class="table table-hover align-middle">
+              <thead>
+                <tr>
+                  <th>#</th>
+                  <th>Status</th>
+                  <th>Criado em</th>
+                  <th>Total</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                {% for order in orders %}
+                <tr>
+                  <td>{{ order.order_number }}</td>
+                  <td>
+                    <span class="badge 
+                      {% if order.status == 'pending' %}bg-warning text-dark{% elif order.status == 'confirmed' %}bg-info text-dark{% elif order.status == 'processing' %}bg-primary{% elif order.status == 'shipped' %}bg-secondary{% elif order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% endif %}">
+                      {{ order.status_display }}
+                    </span>
+                  </td>
+                  <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                  <td>R$ {{ order.total_amount|floatformat:2 }}</td>
+                  <td class="text-end">
+                    <a href="{{ order.get_absolute_url }}" class="btn btn-sm btn-outline-primary">
+                      Ver detalhes
+                    </a>
+                  </td>
+                </tr>
+                {% endfor %}
+              </tbody>
+            </table>
+          </div>
+        {% else %}
+          <p class="text-muted mb-0">Você ainda não possui pedidos.</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

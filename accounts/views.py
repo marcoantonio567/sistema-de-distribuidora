@@ -9,6 +9,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.utils.decorators import method_decorator
 from orders.models import Order
+from .models import UserProfile
 import logging
 
 logger = logging.getLogger('accounts')
@@ -28,6 +29,7 @@ class RegisterView(View):
             confirm_password = request.POST.get('confirm_password', '').strip()
             first_name = request.POST.get('first_name', '').strip()
             last_name = request.POST.get('last_name', '').strip()
+            phone = request.POST.get('phone', '').strip()
             
             # Validation
             if not all([username, email, password, confirm_password]):
@@ -50,6 +52,12 @@ class RegisterView(View):
                 messages.error(request, 'Este email já está em uso.')
                 return render(request, 'accounts/register.html')
             
+            if phone:
+                digits = ''.join(ch for ch in phone if ch.isdigit())
+                if len(digits) < 10 or len(digits) > 11:
+                    messages.error(request, 'Telefone inválido. Informe DDD e número com 10 ou 11 dígitos.')
+                    return render(request, 'accounts/register.html')
+            
             # Create user
             with transaction.atomic():
                 user = User.objects.create_user(
@@ -59,6 +67,8 @@ class RegisterView(View):
                     first_name=first_name,
                     last_name=last_name
                 )
+                
+                UserProfile.objects.create(user=user, phone=phone)
                 
                 # Transfer guest orders to user
                 if request.session.session_key:

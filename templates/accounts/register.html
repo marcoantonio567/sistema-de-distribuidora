@@ -1,0 +1,119 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Criar Conta{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+  <div class="col-md-6">
+    <div class="card shadow-sm">
+      <div class="card-header bg-primary text-white">
+        <h5 class="mb-0"><i class="bi bi-person-plus"></i> Criar sua conta</h5>
+      </div>
+      <div class="card-body">
+        <form method="post" novalidate>
+          {% csrf_token %}
+
+          <div class="mb-3">
+            <label for="username" class="form-label">Usuário</label>
+            <input type="text" name="username" id="username" class="form-control" required maxlength="150" value="{{ request.POST.username }}">
+            <div class="form-text">Use letras, números e @/./+/-/_</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" name="email" id="email" class="form-control" required value="{{ request.POST.email }}">
+          </div>
+
+          <div class="mb-3">
+            <label for="phone" class="form-label">Telefone</label>
+            <input type="tel" name="phone" id="phone" class="form-control" value="{{ request.POST.phone }}" placeholder="(DD) 99999-9999">
+            <div class="form-text">Informe DDD e número. Ex: (11) 91234-5678</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="first_name" class="form-label">Nome</label>
+            <input type="text" name="first_name" id="first_name" class="form-control" value="{{ request.POST.first_name }}">
+          </div>
+
+          <div class="mb-3">
+            <label for="last_name" class="form-label">Sobrenome</label>
+            <input type="text" name="last_name" id="last_name" class="form-control" value="{{ request.POST.last_name }}">
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Senha</label>
+            <input type="password" name="password" id="password" class="form-control" required minlength="8">
+            <div class="form-text">Mínimo de 8 caracteres. Evite senhas comuns ou apenas números.</div>
+          </div>
+
+          <div class="mb-3">
+            <label for="confirm_password" class="form-label">Confirmar senha</label>
+            <input type="password" name="confirm_password" id="confirm_password" class="form-control" required minlength="8">
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100">
+            <i class="bi bi-check-circle"></i> Criar conta
+          </button>
+        </form>
+      </div>
+      <div class="card-footer bg-light">
+        <small>
+          Já tem conta? <a href="{% url 'accounts:login' %}">Entrar</a>
+        </small>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  var phoneInput = document.getElementById('phone');
+  if (phoneInput) {
+    phoneInput.addEventListener('input', function(e) {
+      var value = e.target.value.replace(/\D/g, '');
+      if (value.length > 11) value = value.substring(0, 11);
+      if (value.length > 6) {
+        value = '(' + value.substring(0, 2) + ') ' + value.substring(2, 7) + '-' + value.substring(7);
+      } else if (value.length > 2) {
+        value = '(' + value.substring(0, 2) + ') ' + value.substring(2);
+      } else if (value.length > 0) {
+        value = '(' + value;
+      }
+      e.target.value = value;
+      e.target.classList.remove('is-invalid');
+    });
+  }
+  var form = document.querySelector('form');
+  if (form) {
+    form.addEventListener('submit', function(e) {
+      var isValid = true;
+      var emailInput = document.getElementById('email');
+      if (emailInput && emailInput.value) {
+        var emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+        if (!emailRegex.test(emailInput.value)) {
+          emailInput.classList.add('is-invalid');
+          isValid = false;
+        }
+      }
+      if (phoneInput && phoneInput.value) {
+        var digits = phoneInput.value.replace(/\\D/g, '');
+        if (digits.length < 10) {
+          phoneInput.classList.add('is-invalid');
+          isValid = false;
+        }
+      }
+      if (!isValid) {
+        e.preventDefault();
+      }
+    });
+    form.querySelectorAll('input').forEach(function(el) {
+      el.addEventListener('input', function() {
+        el.classList.remove('is-invalid');
+      });
+    });
+  }
+});
+</script>
+{% endblock %}

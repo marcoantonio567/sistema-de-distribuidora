@@ -1,0 +1,12 @@
+{% extends "painel/base_painel.html" %}
+
+{% block painel_content %}
+<h2>Excluir Produto</h2>
+<p>Tem certeza que deseja excluir o produto <strong>{{ object.name }}</strong>?</p>
+
+<form method="post" class="mt-3">
+  {% csrf_token %}
+  <button type="submit" class="btn btn-danger">Excluir</button>
+  <a href="{% url 'painel:produtos_list' %}" class="btn btn-secondary">Cancelar</a>
+  </form>
+{% endblock %}

@@ -1,0 +1,243 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ product.name }} - Detalhes{% endblock %}
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{% url 'home' %}">Início</a></li>
+                <li class="breadcrumb-item"><a href="{% url 'products:product_list' %}">Produtos</a></li>
+                {% for category in breadcrumb %}
+                    <li class="breadcrumb-item {% if forloop.last %}active{% endif %}">
+                        {% if forloop.last %}
+                            {{ category.name }}
+                        {% else %}
+                            <a href="{% url 'products:category_products' category.slug %}">{{ category.name }}</a>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ol>
+        </nav>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                {% if images and images|length > 0 %}
+                    <div id="productImagesCarousel" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            {% for img in images %}
+                                <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                    <img src="{{ img.image.url }}" class="d-block w-100" alt="{{ img.alt_text|default:product.name }}" style="max-height:420px; object-fit:cover;">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#productImagesCarousel" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Anterior</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#productImagesCarousel" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Próxima</span>
+                        </button>
+                    </div>
+                {% else %}
+                    <img src="https://via.placeholder.com/800x420?text=Sem+Imagem" class="w-100" alt="{{ product.name }}">
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h3 class="card-title mb-2">{{ product.name }}</h3>
+                <div class="mb-2 text-muted">
+                    {% if product.brand %}<span class="me-2"><i class="bi bi-tag"></i> {{ product.brand.name }}</span>{% endif %}
+                    {% if product.sku %}<span class="me-2"><i class="bi bi-upc"></i> SKU: {{ product.sku }}</span>{% endif %}
+                    {% if product.unit %}<span class="me-2"><i class="bi bi-rulers"></i> Unidade: {{ product.get_unit_display }}</span>{% endif %}
+                </div>
+                <div class="d-flex align-items-center mb-3">
+                    <span class="display-6 fw-bold text-primary">R$ {{ product.get_discounted_price|floatformat:2 }}</span>
+                    <span class="ms-3">
+                        {% if product.is_in_stock %}
+                            <span class="badge bg-success"><i class="bi bi-check-circle"></i> Em estoque</span>
+                        {% else %}
+                            <span class="badge bg-danger"><i class="bi bi-x-circle"></i> Indisponível</span>
+                        {% endif %}
+                    </span>
+                </div>
+                <p class="text-muted">{{ product.short_description }}</p>
+                <div class="mb-3">
+                    {% if attributes %}
+                        <h6 class="fw-bold">Atributos</h6>
+                        <ul class="list-unstyled mb-0">
+                            {% for attr in attributes %}
+                                <li><i class="bi bi-dot"></i> {{ attr.attribute.name }}: {{ attr.value }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                    {% if product.get_dimensions %}
+                        <div class="mt-2"><small class="text-muted"><i class="bi bi-box-seam"></i> Dimensões: {{ product.get_dimensions }}</small></div>
+                    {% endif %}
+                    {% if product.weight %}
+                        <div class="mt-1"><small class="text-muted"><i class="bi bi-speedometer"></i> Peso: {{ product.weight }} kg</small></div>
+                    {% endif %}
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="input-group" style="max-width: 140px;">
+                        <button class="btn btn-outline-secondary quantity-minus" type="button">-</button>
+                        <input type="number" class="form-control quantity-input" value="1" min="1" max="{{ product.stock_quantity }}">
+                        <button class="btn btn-outline-secondary quantity-plus" type="button">+</button>
+                    </div>
+                    <button class="btn btn-primary ms-3 add-to-cart-btn" 
+                            data-product-id="{{ product.id }}" 
+                            data-quantity="1"
+                            {% if not product.is_in_stock %}disabled{% endif %}>
+                        <i class="bi bi-cart-plus"></i> Adicionar ao Carrinho
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-12 mt-4">
+        <div class="card">
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs" id="productTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="desc-tab" data-bs-toggle="tab" data-bs-target="#desc" type="button" role="tab">Descrição</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="reviews-tab" data-bs-toggle="tab" data-bs-target="#reviews" type="button" role="tab">
+                            Avaliações <span class="badge bg-secondary">{{ review_count }}</span>
+                        </button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="related-tab" data-bs-toggle="tab" data-bs-target="#related" type="button" role="tab">Relacionados</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="desc" role="tabpanel" aria-labelledby="desc-tab">
+                        <p>{{ product.description|linebreaks }}</p>
+                    </div>
+                    <div class="tab-pane fade" id="reviews" role="tabpanel" aria-labelledby="reviews-tab">
+                        <div class="mb-3">
+                            <strong>Média:</strong>
+                            {% if average_rating %}
+                                {% for i in '12345' %}
+                                    {% if forloop.counter <= average_rating|floatformat:0 %}
+                                        <i class="bi bi-star-fill text-warning"></i>
+                                    {% else %}
+                                        <i class="bi bi-star text-warning"></i>
+                                    {% endif %}
+                                {% endfor %}
+                                <span class="ms-2">{{ average_rating|floatformat:1 }} / 5</span>
+                            {% else %}
+                                <span class="text-muted">Sem avaliações</span>
+                            {% endif %}
+                        </div>
+                        {% if reviews %}
+                            <ul class="list-unstyled">
+                                {% for r in reviews %}
+                                    <li class="mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <strong class="me-2">{{ r.user_name }}</strong>
+                                            <small class="text-muted">{{ r.created_at|date:"d/m/Y H:i" }}</small>
+                                        </div>
+                                        <div class="mb-1">
+                                            {% for i in '12345' %}
+                                                {% if forloop.counter <= r.rating %}
+                                                    <i class="bi bi-star-fill text-warning"></i>
+                                                {% else %}
+                                                    <i class="bi bi-star text-warning"></i>
+                                                {% endif %}
+                                            {% endfor %}
+                                        </div>
+                                        <p class="mb-0">{{ r.comment }}</p>
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% else %}
+                            <div class="alert alert-info">Este produto ainda não possui avaliações.</div>
+                        {% endif %}
+                        <hr>
+                        <h6 class="fw-bold">Avalie este produto</h6>
+                        <form id="review-form" data-product-slug="{{ product.slug }}" method="post" class="row g-3">
+                            {% csrf_token %}
+                            <div class="col-md-6">
+                                <label class="form-label">Nome</label>
+                                <input type="text" class="form-control" name="user_name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-control" name="user_email" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Avaliação</label>
+                                <select class="form-select" name="rating" required>
+                                    <option value="5">5 - Excelente</option>
+                                    <option value="4">4 - Muito bom</option>
+                                    <option value="3">3 - Bom</option>
+                                    <option value="2">2 - Regular</option>
+                                    <option value="1">1 - Ruim</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Comentário</label>
+                                <textarea class="form-control" name="comment" rows="3" required></textarea>
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="bi bi-send"></i> Enviar Avaliação
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="tab-pane fade" id="related" role="tabpanel" aria-labelledby="related-tab">
+                        <div class="row">
+                            {% for rp in related_products %}
+                                <div class="col-md-3 mb-3">
+                                    <div class="card h-100">
+                                        <div class="position-relative">
+                                            {% if rp.get_main_image %}
+                                                <img src="{{ rp.get_main_image.image.url }}" class="card-img-top" alt="{{ rp.name }}" style="height:140px; object-fit:cover;">
+                                            {% else %}
+                                                <img src="https://via.placeholder.com/300x200?text=Sem+Imagem" class="card-img-top" alt="{{ rp.name }}" style="height:140px; object-fit:cover;">
+                                            {% endif %}
+                                        </div>
+                                        <div class="card-body d-flex flex-column">
+                                            <h6 class="card-title">{{ rp.name }}</h6>
+                                            <div class="mt-auto">
+                                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                                    <span class="product-price">R$ {{ rp.price|floatformat:2 }}</span>
+                                                    <small class="text-muted">
+                                                        {% if rp.is_in_stock %}
+                                                            <i class="bi bi-check-circle text-success"></i> Em estoque
+                                                        {% else %}
+                                                            <i class="bi bi-x-circle text-danger"></i> Indisponível
+                                                        {% endif %}
+                                                    </small>
+                                                </div>
+                                                <div class="d-grid">
+                                                    <a href="{{ rp.get_absolute_url }}" class="btn btn-outline-primary btn-sm">
+                                                        <i class="bi bi-eye"></i> Ver Detalhes
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% empty %}
+                                <div class="col-12">
+                                    <div class="alert alert-secondary">Sem produtos relacionados.</div>
+                                </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

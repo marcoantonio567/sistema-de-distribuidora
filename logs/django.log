@@ -83,3 +83,1741 @@ INFO 2026-01-23 11:36:41,286 basehttp 5348 25628 "GET /static/debug_toolbar/js/u
 INFO 2026-01-23 11:36:41,369 basehttp 5348 24896 "GET /cart/summary/ HTTP/1.1" 200 67
 INFO 2026-01-23 11:36:44,976 basehttp 5348 14912 "GET /cart/summary/ HTTP/1.1" 200 67
 INFO 2026-01-23 11:36:45,224 basehttp 5348 14912 "GET /__debug__/history_sidebar/?store_id=711a94a43c30413585f16d8dec283ce1 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:28:41,801 autoreload 4724 6736 Watching for file changes with StatReloader
+INFO 2026-01-26 10:28:46,653 basehttp 4724 19788 "GET / HTTP/1.1" 200 21195
+INFO 2026-01-26 10:28:46,814 basehttp 4724 19788 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-01-26 10:28:46,853 basehttp 4724 19788 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+INFO 2026-01-26 10:28:46,855 basehttp 4724 13972 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+INFO 2026-01-26 10:28:46,856 basehttp 4724 10992 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-01-26 10:28:47,187 basehttp 4724 10992 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+INFO 2026-01-26 10:28:47,194 basehttp 4724 10992 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+INFO 2026-01-26 10:28:47,495 basehttp 4724 10992 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 10:28:47,509 log 4724 13972 Not Found: /favicon.ico
+WARNING 2026-01-26 10:28:47,510 basehttp 4724 13972 "GET /favicon.ico HTTP/1.1" 404 12120
+ERROR 2026-01-26 10:28:50,892 log 4724 8280 Internal Server Error: /products/categories/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: products/category_list.html, products/category_list.html
+ERROR 2026-01-26 10:28:50,928 basehttp 4724 8280 "GET /products/categories/ HTTP/1.1" 500 100950
+INFO 2026-01-26 10:28:59,331 basehttp 4724 12952 "GET /cart/ HTTP/1.1" 200 20221
+INFO 2026-01-26 10:28:59,480 basehttp 4724 12952 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:03,347 basehttp 4724 12952 "GET /cart/ HTTP/1.1" 200 20221
+INFO 2026-01-26 10:29:03,439 basehttp 4724 12952 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:08,877 basehttp 4724 5776 "GET /products/ HTTP/1.1" 200 20525
+INFO 2026-01-26 10:29:08,989 basehttp 4724 5776 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:12,146 basehttp 4724 5776 "GET /products/ HTTP/1.1" 200 20525
+INFO 2026-01-26 10:29:12,259 basehttp 4724 5776 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:13,261 basehttp 4724 5776 "GET /products/ HTTP/1.1" 200 20525
+INFO 2026-01-26 10:29:13,379 basehttp 4724 5776 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:13,883 basehttp 4724 5776 "GET / HTTP/1.1" 200 21194
+INFO 2026-01-26 10:29:13,994 basehttp 4724 5776 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:15,088 basehttp 4724 5776 "GET /products/ HTTP/1.1" 200 20525
+INFO 2026-01-26 10:29:15,208 basehttp 4724 5776 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 10:29:16,665 log 4724 5776 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/login.html
+ERROR 2026-01-26 10:29:16,694 basehttp 4724 5776 "GET /accounts/login/ HTTP/1.1" 500 98070
+INFO 2026-01-26 10:29:45,253 basehttp 4724 18996 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:29:46,257 basehttp 4724 18996 "GET /__debug__/history_sidebar/?store_id=217582264b9545548bceded881bf4aa0 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:30:15,261 basehttp 4724 20720 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:30:16,235 basehttp 4724 20720 "GET /__debug__/history_sidebar/?store_id=9ed18049c48746b39a7d9204d35fee96 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:30:45,261 basehttp 4724 15448 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:30:46,248 basehttp 4724 15448 "GET /__debug__/history_sidebar/?store_id=1ec0ecde6f3444bf940c08e873192888 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:31:15,257 basehttp 4724 11108 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:31:16,251 basehttp 4724 11108 "GET /__debug__/history_sidebar/?store_id=52762abf5e05458f842363c8247c18cc HTTP/1.1" 200 9389
+INFO 2026-01-26 10:31:45,257 basehttp 4724 14044 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:31:46,236 basehttp 4724 14044 "GET /__debug__/history_sidebar/?store_id=f529a877b1a045e196fe463d4b0559e4 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:32:09,341 basehttp 4724 3044 "GET / HTTP/1.1" 200 21194
+INFO 2026-01-26 10:32:09,439 basehttp 4724 3044 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:32:39,420 basehttp 4724 18364 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:32:39,647 basehttp 4724 18364 "GET /__debug__/history_sidebar/?store_id=aeac163bcec044fea2ed71b7183e8672 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:33:10,259 basehttp 4724 14476 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:33:11,234 basehttp 4724 14476 "GET /__debug__/history_sidebar/?store_id=b8ec0d9b733b4a45a76f23a1f40d92b7 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:38:04,912 autoreload 12476 2144 Watching for file changes with StatReloader
+INFO 2026-01-26 10:38:10,512 basehttp 12476 6104 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:38:11,244 basehttp 12476 6104 "GET /__debug__/history_sidebar/?store_id=78f654ec4d924dcea0203a7ba5ffce2f HTTP/1.1" 200 9390
+INFO 2026-01-26 10:38:17,702 basehttp 12476 8548 "GET /?ide_webview_request_time=1769434697468 HTTP/1.1" 200 21235
+INFO 2026-01-26 10:38:17,744 basehttp 12476 8548 "GET /static/css/style.css HTTP/1.1" 304 0
+INFO 2026-01-26 10:38:17,751 basehttp 12476 14628 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 304 0
+INFO 2026-01-26 10:38:17,752 basehttp 12476 17316 "GET /static/js/main.js HTTP/1.1" 304 0
+INFO 2026-01-26 10:38:17,753 basehttp 12476 7056 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 304 0
+INFO 2026-01-26 10:38:17,906 basehttp 12476 7056 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 304 0
+INFO 2026-01-26 10:38:17,918 basehttp 12476 7056 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 304 0
+WARNING 2026-01-26 10:38:18,028 log 12476 14628 Not Found: /@vite/client
+WARNING 2026-01-26 10:38:18,029 basehttp 12476 14628 "GET /@vite/client HTTP/1.1" 404 12124
+INFO 2026-01-26 10:38:18,038 basehttp 12476 7056 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:01,716 autoreload 1744 3180 Watching for file changes with StatReloader
+INFO 2026-01-26 10:48:04,927 basehttp 1744 5380 "GET / HTTP/1.1" 200 21217
+INFO 2026-01-26 10:48:05,349 basehttp 1744 5380 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:06,498 basehttp 1744 5380 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:06,753 basehttp 1744 5380 "GET /__debug__/history_sidebar/?store_id=f04a86c1adbf48b4bb64d42f89b25bed HTTP/1.1" 200 9389
+INFO 2026-01-26 10:48:09,060 basehttp 1744 5380 "GET /products/ HTTP/1.1" 200 20547
+INFO 2026-01-26 10:48:09,191 basehttp 1744 5380 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:10,390 basehttp 1744 10084 "GET / HTTP/1.1" 200 21216
+INFO 2026-01-26 10:48:10,514 basehttp 1744 10084 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:10,939 basehttp 1744 10084 "GET /products/ HTTP/1.1" 200 20547
+INFO 2026-01-26 10:48:11,047 basehttp 1744 10084 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:11,621 basehttp 1744 10084 "GET /products/categories/ HTTP/1.1" 200 17515
+INFO 2026-01-26 10:48:11,742 basehttp 1744 10084 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:13,641 basehttp 1744 10084 "GET /products/ HTTP/1.1" 200 20547
+INFO 2026-01-26 10:48:13,746 basehttp 1744 10084 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 10:48:33,019 log 1744 8720 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/login.html
+ERROR 2026-01-26 10:48:33,045 basehttp 1744 8720 "GET /accounts/login/ HTTP/1.1" 500 98071
+WARNING 2026-01-26 10:48:53,310 log 1744 7424 Not Found: /painel/pedidos/
+WARNING 2026-01-26 10:48:53,310 basehttp 1744 7424 "GET /painel/pedidos/ HTTP/1.1" 404 13759
+INFO 2026-01-26 10:48:56,038 basehttp 1744 7424 "GET /painel/ HTTP/1.1" 302 0
+ERROR 2026-01-26 10:48:56,105 log 1744 7424 Internal Server Error: /accounts/login/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/login.html
+ERROR 2026-01-26 10:48:56,134 basehttp 1744 7424 "GET /accounts/login/?next=/painel/ HTTP/1.1" 500 98286
+INFO 2026-01-26 10:48:59,268 basehttp 1744 7424 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:48:59,491 basehttp 1744 7424 "GET /__debug__/history_sidebar/?store_id=502c7523bbc2488fa36719dad6c4f983 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:49:00,861 basehttp 1744 12884 "GET /products/ HTTP/1.1" 200 20547
+INFO 2026-01-26 10:49:01,000 basehttp 1744 12884 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:49:01,518 basehttp 1744 12884 "GET /products/categories/ HTTP/1.1" 200 17515
+INFO 2026-01-26 10:49:01,611 basehttp 1744 12884 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:51:44,517 autoreload 18196 8132 Watching for file changes with StatReloader
+INFO 2026-01-26 10:51:47,192 basehttp 18196 16736 "GET / HTTP/1.1" 200 21217
+INFO 2026-01-26 10:51:47,537 basehttp 18196 16736 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:51:49,043 basehttp 18196 16736 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 10:51:49,160 basehttp 18196 16736 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 10:51:51,659 log 18196 10104 Internal Server Error: /accounts/register/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\accounts\views.py", line 21, in get
+    return render(request, 'accounts/register.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/register.html
+ERROR 2026-01-26 10:51:51,689 basehttp 18196 10104 "GET /accounts/register/ HTTP/1.1" 500 111059
+INFO 2026-01-26 10:51:53,120 basehttp 18196 10104 "GET /accounts/login/ HTTP/1.1" 200 18851
+ERROR 2026-01-26 10:52:07,049 log 18196 12492 Internal Server Error: /accounts/password_reset/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/password_reset.html
+ERROR 2026-01-26 10:52:07,073 basehttp 18196 12492 "GET /accounts/password_reset/ HTTP/1.1" 500 101069
+INFO 2026-01-26 10:52:08,241 basehttp 18196 12492 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 10:52:11,909 basehttp 18196 6104 "GET /products/categories/ HTTP/1.1" 200 17515
+INFO 2026-01-26 10:52:12,016 basehttp 18196 6104 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:52:13,176 basehttp 18196 6104 "GET /products/ HTTP/1.1" 200 20547
+INFO 2026-01-26 10:52:13,299 basehttp 18196 6104 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:52:25,647 basehttp 18196 10160 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 10:52:25,769 basehttp 18196 10160 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:52:28,369 basehttp 18196 10160 "POST /accounts/login/ HTTP/1.1" 200 19067
+INFO 2026-01-26 10:52:28,466 basehttp 18196 10160 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:52:36,632 basehttp 18196 11240 "POST /accounts/login/ HTTP/1.1" 200 19066
+INFO 2026-01-26 10:52:36,728 basehttp 18196 11240 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:53:07,247 basehttp 18196 11240 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:53:08,244 basehttp 18196 11240 "GET /__debug__/history_sidebar/?store_id=ccfcf3162e15446887ef4327882bebcf HTTP/1.1" 200 9389
+INFO 2026-01-26 10:54:14,802 autoreload 1088 1928 Watching for file changes with StatReloader
+INFO 2026-01-26 10:54:16,924 basehttp 1088 17000 "GET / HTTP/1.1" 200 21217
+INFO 2026-01-26 10:54:17,177 basehttp 1088 17000 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:54:21,891 basehttp 1088 13340 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 10:54:22,011 basehttp 1088 13340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:54:27,008 basehttp 1088 13340 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-01-26 10:54:27,079 basehttp 1088 13340 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 10:54:27,232 basehttp 1088 13340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:54:31,683 basehttp 1088 14680 "GET /painel/ HTTP/1.1" 200 18910
+INFO 2026-01-26 10:54:31,773 basehttp 1088 14680 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:54:33,256 basehttp 1088 14680 "GET /painel/produtos/ HTTP/1.1" 200 20388
+INFO 2026-01-26 10:54:33,371 basehttp 1088 14680 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:54:34,935 basehttp 1088 14680 "GET /painel/produtos/novo/ HTTP/1.1" 200 25494
+INFO 2026-01-26 10:54:35,044 basehttp 1088 14680 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:55:05,036 basehttp 1088 18128 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:55:05,263 basehttp 1088 18128 "GET /__debug__/history_sidebar/?store_id=f00e99da008d49fb8a0cdce42aba6620 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:55:35,031 basehttp 1088 15104 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:55:35,262 basehttp 1088 15104 "GET /__debug__/history_sidebar/?store_id=10da8ea9ab3e48828b2b6ce5c5026d78 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:56:05,022 basehttp 1088 2144 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:56:05,249 basehttp 1088 2144 "GET /__debug__/history_sidebar/?store_id=0de9aaaccce24b599eb2a4fe8ce03018 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:56:35,024 basehttp 1088 18584 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:56:35,250 basehttp 1088 18584 "GET /__debug__/history_sidebar/?store_id=a26c3bef8e6d46cfb643d98855b95761 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:56:39,936 autoreload 1088 1928 C:\Users\2mbet\Desktop\sistema-distribuidora\products\models.py changed, reloading.
+INFO 2026-01-26 10:56:41,066 autoreload 8016 6432 Watching for file changes with StatReloader
+INFO 2026-01-26 10:57:05,401 basehttp 8016 11552 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:57:05,640 basehttp 8016 11552 "GET /__debug__/history_sidebar/?store_id=d9fc78571db644b698d92e0549bd8ce2 HTTP/1.1" 200 9390
+INFO 2026-01-26 10:57:35,025 basehttp 8016 1596 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:57:35,258 basehttp 8016 1596 "GET /__debug__/history_sidebar/?store_id=1d336f42ef194ff395bf14344b44e41d HTTP/1.1" 200 9389
+INFO 2026-01-26 10:58:05,072 basehttp 8016 1596 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:58:05,301 basehttp 8016 1596 "GET /__debug__/history_sidebar/?store_id=b048d812af1f48ecbf55ef278a43407d HTTP/1.1" 200 9389
+INFO 2026-01-26 10:58:35,021 basehttp 8016 10480 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:58:35,248 basehttp 8016 10480 "GET /__debug__/history_sidebar/?store_id=9e9b9a532cbc4b8bacec0905cdb64e83 HTTP/1.1" 200 9389
+INFO 2026-01-26 10:59:05,030 basehttp 8016 10480 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:59:05,270 basehttp 8016 10480 "GET /__debug__/history_sidebar/?store_id=e3db096f426b41cb8925296ebebf088c HTTP/1.1" 200 9389
+INFO 2026-01-26 10:59:35,015 basehttp 8016 18228 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:59:35,250 basehttp 8016 18228 "GET /__debug__/history_sidebar/?store_id=4bdc2e7cbae2457c85f0a96bd8eeb4da HTTP/1.1" 200 9389
+INFO 2026-01-26 10:59:43,032 basehttp 8016 9640 "GET /painel/ HTTP/1.1" 200 18910
+INFO 2026-01-26 10:59:43,131 basehttp 8016 9640 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:59:45,107 basehttp 8016 9640 "GET /products/ HTTP/1.1" 200 53049
+INFO 2026-01-26 10:59:45,214 basehttp 8016 9640 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 10:59:48,799 basehttp 8016 9640 "GET /products/ HTTP/1.1" 200 53049
+INFO 2026-01-26 10:59:48,889 basehttp 8016 9640 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:00:05,833 autoreload 14780 8468 Watching for file changes with StatReloader
+INFO 2026-01-26 11:00:10,246 basehttp 14780 16236 "GET /products/ HTTP/1.1" 200 53049
+INFO 2026-01-26 11:00:10,280 basehttp 14780 16236 "GET /static/css/style.css HTTP/1.1" 200 6393
+INFO 2026-01-26 11:00:10,286 basehttp 14780 18612 "GET /static/debug_toolbar/js/toolbar.js HTTP/1.1" 200 13404
+INFO 2026-01-26 11:00:10,295 basehttp 14780 19308 "GET /static/debug_toolbar/css/toolbar.css HTTP/1.1" 200 12621
+INFO 2026-01-26 11:00:10,296 basehttp 14780 14112 "GET /static/js/main.js HTTP/1.1" 200 16051
+INFO 2026-01-26 11:00:10,436 basehttp 14780 14112 "GET /static/debug_toolbar/css/print.css HTTP/1.1" 200 43
+INFO 2026-01-26 11:00:10,451 basehttp 14780 14112 "GET /static/debug_toolbar/js/utils.js HTTP/1.1" 200 4527
+INFO 2026-01-26 11:00:10,523 basehttp 14780 14112 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:00:11,002 basehttp 14780 14112 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 11:00:11,117 basehttp 14780 14112 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:00:11,149 log 14780 13256 Not Found: /favicon.ico
+WARNING 2026-01-26 11:00:11,152 basehttp 14780 13256 "GET /favicon.ico HTTP/1.1" 404 12227
+INFO 2026-01-26 11:00:15,249 basehttp 14780 13256 "GET /products/ HTTP/1.1" 200 53049
+INFO 2026-01-26 11:00:15,342 basehttp 14780 13256 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 11:00:21,805 log 14780 13256 Internal Server Error: /products/product/esponja-de-aco/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 11:00:21,835 basehttp 14780 13256 "GET /products/product/esponja-de-aco/ HTTP/1.1" 500 169418
+INFO 2026-01-26 11:00:26,315 views 14780 13256 Product Pano de Prato Algodão added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:00:26,393 basehttp 14780 13256 "POST /cart/add/ HTTP/1.1" 200 103
+INFO 2026-01-26 11:00:26,646 basehttp 14780 13256 "GET /__debug__/history_sidebar/?store_id=47e31477cc904dfcb3a65da4d16a51ee HTTP/1.1" 200 9379
+INFO 2026-01-26 11:00:27,670 views 14780 13256 Product Esponja de Aço added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:00:27,739 basehttp 14780 13256 "POST /cart/add/ HTTP/1.1" 200 103
+INFO 2026-01-26 11:00:27,966 basehttp 14780 13256 "GET /__debug__/history_sidebar/?store_id=5d0a48c905864c968037dadb8b4ef242 HTTP/1.1" 200 9379
+INFO 2026-01-26 11:00:28,800 views 14780 13256 Product Papel Higiênico 12 rolos added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:00:28,888 basehttp 14780 13256 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:00:29,128 basehttp 14780 13256 "GET /__debug__/history_sidebar/?store_id=f95e8643d5d64869b8c0bb0ca2721022 HTTP/1.1" 200 9380
+INFO 2026-01-26 11:00:36,846 basehttp 14780 9888 "GET /products/category/bebidas/ HTTP/1.1" 200 30966
+INFO 2026-01-26 11:00:36,966 basehttp 14780 9888 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:00:36,982 basehttp 14780 9888 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:00:39,373 basehttp 14780 16408 "GET / HTTP/1.1" 200 22420
+INFO 2026-01-26 11:00:39,493 basehttp 14780 16408 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:00:39,510 basehttp 14780 16408 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:01:09,462 basehttp 14780 13884 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:01:09,476 basehttp 14780 13884 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:01:09,701 basehttp 14780 3512 "GET /__debug__/history_sidebar/?store_id=b22041e99dc64e1d9e47b40a4fbe9461 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:01:39,461 basehttp 14780 20092 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:01:39,477 basehttp 14780 20092 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:01:39,703 basehttp 14780 9920 "GET /__debug__/history_sidebar/?store_id=c463dc3c7f1e4af8ac7613e1666ee9c1 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:01:43,862 basehttp 14780 9920 "GET /cart/ HTTP/1.1" 200 30665
+INFO 2026-01-26 11:01:43,978 basehttp 14780 9920 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:01:43,994 basehttp 14780 9920 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:01:49,141 basehttp 14780 11404 "GET /products/ HTTP/1.1" 200 53150
+INFO 2026-01-26 11:01:49,260 basehttp 14780 11404 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:01:49,278 basehttp 14780 11404 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:01:51,191 basehttp 14780 9552 "GET /cart/ HTTP/1.1" 200 30665
+INFO 2026-01-26 11:01:51,302 basehttp 14780 9552 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:01:51,317 basehttp 14780 9552 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:08,187 basehttp 14780 18536 "GET /painel/ HTTP/1.1" 200 19011
+INFO 2026-01-26 11:02:08,304 basehttp 14780 18536 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:08,319 basehttp 14780 18536 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:09,681 basehttp 14780 1436 "GET /products/categories/ HTTP/1.1" 200 19895
+INFO 2026-01-26 11:02:09,808 basehttp 14780 1436 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:09,824 basehttp 14780 1436 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:11,536 basehttp 14780 11116 "GET /products/category/limpeza/ HTTP/1.1" 200 30734
+INFO 2026-01-26 11:02:11,658 basehttp 14780 11116 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:11,673 basehttp 14780 11116 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+ERROR 2026-01-26 11:02:15,078 log 14780 20064 Internal Server Error: /orders/list/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: orders/order_list.html
+ERROR 2026-01-26 11:02:15,100 basehttp 14780 20064 "GET /orders/list/ HTTP/1.1" 500 100830
+INFO 2026-01-26 11:02:17,653 basehttp 14780 20064 "GET /painel/ HTTP/1.1" 200 19011
+INFO 2026-01-26 11:02:17,773 basehttp 14780 20064 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:17,787 basehttp 14780 20064 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:19,801 basehttp 14780 19888 "GET / HTTP/1.1" 200 22420
+INFO 2026-01-26 11:02:19,915 basehttp 14780 19888 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:19,933 basehttp 14780 19888 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:22,329 basehttp 14780 6620 "GET /cart/ HTTP/1.1" 200 30665
+INFO 2026-01-26 11:02:22,453 basehttp 14780 6620 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:22,466 basehttp 14780 6620 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:23,830 basehttp 14780 12656 "GET /products/ HTTP/1.1" 200 53150
+INFO 2026-01-26 11:02:23,975 basehttp 14780 12656 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:23,988 basehttp 14780 12656 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:26,042 views 14780 7132 Product Pano de Prato Algodão added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:02:26,110 basehttp 14780 7132 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:02:26,347 basehttp 14780 7132 "GET /__debug__/history_sidebar/?store_id=4f9513ad54304e8c972cc7351943d339 HTTP/1.1" 200 9379
+INFO 2026-01-26 11:02:26,484 views 14780 7132 Product Esponja de Aço added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:02:26,549 basehttp 14780 7132 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:02:26,787 basehttp 14780 7132 "GET /__debug__/history_sidebar/?store_id=908c1ccf24ac40498f2e74d57609d289 HTTP/1.1" 200 9379
+INFO 2026-01-26 11:02:27,204 views 14780 7132 Product Sabonete em Barra 90g added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:02:27,295 basehttp 14780 7132 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:02:27,522 basehttp 14780 7132 "GET /__debug__/history_sidebar/?store_id=e51566277f3f4f41ac760bd79575db82 HTTP/1.1" 200 9380
+INFO 2026-01-26 11:02:27,734 views 14780 7132 Product Shampoo Hidratante 350ml added to cart 21bd2a67-f4d5-44e7-952c-0336925a90d1
+INFO 2026-01-26 11:02:27,813 basehttp 14780 7132 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:02:28,044 basehttp 14780 7132 "GET /__debug__/history_sidebar/?store_id=77b9015bfab140ee95fb4527e3d47aef HTTP/1.1" 200 9380
+INFO 2026-01-26 11:02:43,137 basehttp 14780 19024 "GET /painel/ HTTP/1.1" 200 19012
+INFO 2026-01-26 11:02:43,264 basehttp 14780 19024 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:43,277 basehttp 14780 19024 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:44,470 basehttp 14780 13156 "GET /painel/produtos/ HTTP/1.1" 200 44652
+INFO 2026-01-26 11:02:44,618 basehttp 14780 13156 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:44,632 basehttp 14780 13156 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:48,554 basehttp 14780 13960 "POST /painel/produtos/15/ativar/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:02:48,644 basehttp 14780 13960 "GET /painel/produtos/ HTTP/1.1" 200 44663
+INFO 2026-01-26 11:02:48,783 basehttp 14780 13960 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:48,795 basehttp 14780 13960 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:50,432 basehttp 14780 5816 "POST /painel/produtos/15/ativar/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:02:50,532 basehttp 14780 5816 "GET /painel/produtos/ HTTP/1.1" 200 44651
+INFO 2026-01-26 11:02:50,667 basehttp 14780 5816 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:50,679 basehttp 14780 5816 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:56,692 basehttp 14780 11364 "POST /painel/produtos/15/estoque/ajustar/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:02:56,775 basehttp 14780 11364 "GET /painel/produtos/ HTTP/1.1" 200 44651
+INFO 2026-01-26 11:02:56,889 basehttp 14780 11364 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:56,901 basehttp 14780 11364 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:02:58,723 basehttp 14780 18800 "GET /painel/produtos/15/editar/ HTTP/1.1" 200 26235
+INFO 2026-01-26 11:02:58,839 basehttp 14780 18800 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:02:58,851 basehttp 14780 18800 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:03:07,169 basehttp 14780 14376 "GET /painel/produtos/?q=&categoria=&marca=&ativo=&csrfmiddlewaretoken=zVyFuzUZciYHVVibGO9oEjzGu68IiCpg0ainKmXrIZJ7F0cGaUeZ01XmIN2QWzx0 HTTP/1.1" 200 44780
+INFO 2026-01-26 11:03:07,302 basehttp 14780 14376 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:03:07,318 basehttp 14780 14376 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:03:10,069 basehttp 14780 11404 "GET /painel/produtos/?q=&categoria=1&marca=&ativo=&csrfmiddlewaretoken=vWZxsviIeUynFcyw2TIJGEazoDECXrCMWbJfIilaKBjNphs1wZNk2myfCkyKBoKw HTTP/1.1" 200 25810
+INFO 2026-01-26 11:03:10,197 basehttp 14780 11404 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:03:10,211 basehttp 14780 11404 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:03:13,262 basehttp 14780 19272 "GET /painel/produtos/3/editar/ HTTP/1.1" 200 26245
+INFO 2026-01-26 11:03:13,385 basehttp 14780 19272 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:03:13,399 basehttp 14780 19272 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:03:44,284 basehttp 14780 12408 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:03:44,295 basehttp 14780 12408 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:03:45,251 basehttp 14780 5980 "GET /__debug__/history_sidebar/?store_id=bfa5fb4f8c9a4a97abe3d49bf0e270d5 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:04:13,366 basehttp 14780 5980 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:04:13,379 basehttp 14780 5980 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:04:13,595 basehttp 14780 14588 "GET /__debug__/history_sidebar/?store_id=cddbfa8d77a54d2382bc33cc1fdf5a8e HTTP/1.1" 200 9390
+INFO 2026-01-26 11:04:43,366 basehttp 14780 14588 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:04:43,377 basehttp 14780 14588 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:04:43,593 basehttp 14780 17380 "GET /__debug__/history_sidebar/?store_id=e9984cd9132346ce8e6fac3e5b395bd6 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:05:14,275 basehttp 14780 17380 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:05:14,289 basehttp 14780 17380 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:05:15,248 basehttp 14780 9736 "GET /__debug__/history_sidebar/?store_id=6c991a7516cc4e08b2bc9e9518a678ed HTTP/1.1" 200 9390
+INFO 2026-01-26 11:05:44,298 basehttp 14780 10512 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:05:44,313 basehttp 14780 10512 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:05:45,271 basehttp 14780 15312 "GET /__debug__/history_sidebar/?store_id=68b2371103f24294938cbd9698628c6c HTTP/1.1" 200 9390
+INFO 2026-01-26 11:06:13,365 basehttp 14780 21416 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:06:13,380 basehttp 14780 21416 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:06:13,588 basehttp 14780 21096 "GET /__debug__/history_sidebar/?store_id=22a057a62e3045a7b2f7014ce572f34e HTTP/1.1" 200 9390
+INFO 2026-01-26 11:06:29,260 basehttp 14780 7080 "GET /?ide_webview_request_time=1769434697468 HTTP/1.1" 200 21255
+INFO 2026-01-26 11:06:30,053 basehttp 14780 7080 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:06:31,022 log 14780 7080 Not Found: /@vite/client
+WARNING 2026-01-26 11:06:31,022 basehttp 14780 7080 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:06:39,722 autoreload 13880 4944 Watching for file changes with StatReloader
+INFO 2026-01-26 11:06:43,767 basehttp 13880 16952 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:06:43,781 basehttp 13880 16952 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:06:43,996 basehttp 13880 9880 "GET /__debug__/history_sidebar/?store_id=966e042641a54d8db0f15a56ee846e2b HTTP/1.1" 200 9391
+INFO 2026-01-26 11:07:00,283 basehttp 13880 12476 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:07:01,242 basehttp 13880 12476 "GET /__debug__/history_sidebar/?store_id=66f62067cc424dbdbe30414174d00738 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:07:13,360 basehttp 13880 8408 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:07:13,373 basehttp 13880 8408 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:07:13,584 basehttp 13880 256 "GET /__debug__/history_sidebar/?store_id=f6e4dfb14b1f44ac81b0ee11e107c365 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:07:30,248 basehttp 13880 16952 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:07:31,235 basehttp 13880 16952 "GET /__debug__/history_sidebar/?store_id=56b1afc121644978958cc5b6f670ccea HTTP/1.1" 200 9389
+INFO 2026-01-26 11:07:44,263 basehttp 13880 12516 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:07:44,275 basehttp 13880 12516 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:07:45,244 basehttp 13880 4128 "GET /__debug__/history_sidebar/?store_id=7cd28c2df7d84929a18a5271dd1eaf7f HTTP/1.1" 200 9390
+INFO 2026-01-26 11:07:47,284 basehttp 13880 4128 "GET /painel/ HTTP/1.1" 200 19012
+INFO 2026-01-26 11:07:47,400 basehttp 13880 4128 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:07:47,414 basehttp 13880 4128 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:07:49,211 basehttp 13880 18528 "GET /products/categories/ HTTP/1.1" 200 19895
+INFO 2026-01-26 11:07:49,326 basehttp 13880 18528 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:07:49,343 basehttp 13880 18528 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:07:51,227 basehttp 13880 7096 "GET /products/ HTTP/1.1" 200 53150
+INFO 2026-01-26 11:07:51,356 basehttp 13880 7096 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:07:51,373 basehttp 13880 7096 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+ERROR 2026-01-26 11:07:53,502 log 13880 10228 Internal Server Error: /orders/list/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: orders/order_list.html
+ERROR 2026-01-26 11:07:53,525 basehttp 13880 10228 "GET /orders/list/ HTTP/1.1" 500 100813
+INFO 2026-01-26 11:07:58,396 basehttp 13880 9124 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:07:58,422 basehttp 13880 9124 "GET / HTTP/1.1" 200 21218
+INFO 2026-01-26 11:07:58,591 basehttp 13880 9124 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:07:59,600 basehttp 13880 9124 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:07:59,719 basehttp 13880 9124 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:08:00,262 basehttp 13880 18304 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 11:08:00,923 log 13880 9124 Internal Server Error: /accounts/register/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\accounts\views.py", line 21, in get
+    return render(request, 'accounts/register.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/register.html
+ERROR 2026-01-26 11:08:00,946 basehttp 13880 9124 "GET /accounts/register/ HTTP/1.1" 500 111058
+INFO 2026-01-26 11:08:01,234 basehttp 13880 18304 "GET /__debug__/history_sidebar/?store_id=bfe9c2e885de4821905fec37e995a645 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:08:30,263 basehttp 13880 18396 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:08:31,247 basehttp 13880 18396 "GET /__debug__/history_sidebar/?store_id=084c6df3600044a58a94ef199b57ce9c HTTP/1.1" 200 9389
+INFO 2026-01-26 11:09:00,265 basehttp 13880 16852 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:09:01,234 basehttp 13880 16852 "GET /__debug__/history_sidebar/?store_id=ddb82cb5c3d2428eb9389b43805fded6 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:09:30,306 basehttp 13880 3216 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:09:31,240 basehttp 13880 3216 "GET /__debug__/history_sidebar/?store_id=86dcc43a3d84448bab335ed1c60b8b4a HTTP/1.1" 200 9389
+INFO 2026-01-26 11:10:00,278 basehttp 13880 2012 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:10:01,252 basehttp 13880 2012 "GET /__debug__/history_sidebar/?store_id=1e8e720339894d5f8596775849a4efd1 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:10:30,257 basehttp 13880 19668 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:10:31,245 basehttp 13880 19668 "GET /__debug__/history_sidebar/?store_id=3fdb2019c09348adaa8fa9c6e715b0b2 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:10:43,659 basehttp 13880 16852 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:11:00,073 basehttp 13880 6092 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:11:00,315 basehttp 13880 6092 "GET /__debug__/history_sidebar/?store_id=c15f64b3c08540b2a690b0fbb71dbe2c HTTP/1.1" 200 9389
+INFO 2026-01-26 11:11:01,785 autoreload 13880 4944 C:\Users\2mbet\Desktop\sistema-distribuidora\products\models.py changed, reloading.
+INFO 2026-01-26 11:11:03,615 autoreload 8328 17472 Watching for file changes with StatReloader
+INFO 2026-01-26 11:11:13,613 autoreload 8328 17472 C:\Users\2mbet\Desktop\sistema-distribuidora\products\forms.py changed, reloading.
+INFO 2026-01-26 11:11:14,952 autoreload 12268 18516 Watching for file changes with StatReloader
+ERROR 2026-01-26 11:11:15,816 views 12268 16536 Error getting cart summary: no such column: products_product.unit
+INFO 2026-01-26 11:11:15,934 basehttp 12268 16536 "GET /cart/summary/ HTTP/1.1" 200 64
+INFO 2026-01-26 11:11:16,237 basehttp 12268 16536 "GET /__debug__/history_sidebar/?store_id=db784051e5b04ff8b17d9233948fcef3 HTTP/1.1" 200 9390
+ERROR 2026-01-26 11:11:30,232 views 12268 19600 Error getting cart summary: no such column: products_product.unit
+INFO 2026-01-26 11:11:30,289 basehttp 12268 19600 "GET /cart/summary/ HTTP/1.1" 200 64
+INFO 2026-01-26 11:11:31,252 basehttp 12268 19600 "GET /__debug__/history_sidebar/?store_id=fe2a77977b634c08990476a48247b543 HTTP/1.1" 200 9389
+ERROR 2026-01-26 11:11:44,237 views 12268 14716 Error getting cart summary: no such column: products_product.unit
+INFO 2026-01-26 11:11:44,289 basehttp 12268 14716 "GET /cart/summary/ HTTP/1.1" 200 64
+INFO 2026-01-26 11:11:45,240 basehttp 12268 14716 "GET /__debug__/history_sidebar/?store_id=87988dd62cef43d6b197b6dabc6cdbfb HTTP/1.1" 200 9389
+INFO 2026-01-26 11:12:00,046 basehttp 12268 8324 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:12:00,277 basehttp 12268 8324 "GET /__debug__/history_sidebar/?store_id=5f3ba3c8c82d4379b4f9571ac4ad3890 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:12:14,329 basehttp 12268 12812 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:12:15,249 basehttp 12268 12812 "GET /__debug__/history_sidebar/?store_id=2ae6b7c13b3e4f2a96e605ebb59a327e HTTP/1.1" 200 9389
+INFO 2026-01-26 11:12:30,058 basehttp 12268 18496 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:12:30,286 basehttp 12268 18496 "GET /__debug__/history_sidebar/?store_id=d30f24d013764e3683d1f0ecc6167765 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:12:44,265 basehttp 12268 12484 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:12:45,276 basehttp 12268 12484 "GET /__debug__/history_sidebar/?store_id=9ddc0075a7b94f4f82dd13cd42e5adc9 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:13:00,085 basehttp 12268 16320 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:13:00,324 basehttp 12268 16320 "GET /__debug__/history_sidebar/?store_id=1ab4d235b75a42018f0307e80ab7285a HTTP/1.1" 200 9389
+INFO 2026-01-26 11:13:14,256 basehttp 12268 18624 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:13:15,270 basehttp 12268 18624 "GET /__debug__/history_sidebar/?store_id=b3a6593ef8c64004875272259eed15f4 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:13:30,042 basehttp 12268 16320 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:13:30,276 basehttp 12268 16320 "GET /__debug__/history_sidebar/?store_id=503dff5010fa4bb7bb2d88abc634dea9 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:13:44,254 basehttp 12268 9880 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:13:45,233 basehttp 12268 9880 "GET /__debug__/history_sidebar/?store_id=d44c5efdcab648fc88ef7aa80a0a107d HTTP/1.1" 200 9389
+INFO 2026-01-26 11:14:00,263 basehttp 12268 1028 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:14:01,247 basehttp 12268 1028 "GET /__debug__/history_sidebar/?store_id=ee80c21a2233438794578beb6855ac0c HTTP/1.1" 200 9389
+INFO 2026-01-26 11:14:30,047 basehttp 12268 11048 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:14:30,281 basehttp 12268 11048 "GET /__debug__/history_sidebar/?store_id=dca925f02b3348f392300213010f3a8b HTTP/1.1" 200 9389
+INFO 2026-01-26 11:14:45,275 basehttp 12268 13332 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:14:46,231 basehttp 12268 13332 "GET /__debug__/history_sidebar/?store_id=27e1ae896a0f41fa9a8f9b110dedcb11 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:15:00,050 basehttp 12268 20016 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:15:00,286 basehttp 12268 20016 "GET /__debug__/history_sidebar/?store_id=25e4feb6f5924341b98af28d55e91b63 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:15:30,062 basehttp 12268 3124 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:15:30,294 basehttp 12268 3124 "GET /__debug__/history_sidebar/?store_id=27ae44231a4240d09a4b0585fb42fdc7 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:15:46,273 basehttp 12268 18676 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:15:47,240 basehttp 12268 18676 "GET /__debug__/history_sidebar/?store_id=7aed68ba088f40b597d6934ace2b885a HTTP/1.1" 200 9389
+INFO 2026-01-26 11:16:00,055 basehttp 12268 7824 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:16:00,293 basehttp 12268 7824 "GET /__debug__/history_sidebar/?store_id=d7190d3d317e44a898eb7b09f62f6230 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:16:30,266 basehttp 12268 13488 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:16:31,247 basehttp 12268 13488 "GET /__debug__/history_sidebar/?store_id=21b46f4343c44d13abc012d630a98951 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:17:00,078 basehttp 12268 9180 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:17:00,322 basehttp 12268 9180 "GET /__debug__/history_sidebar/?store_id=5cfcd9ac5f5f4ee7a4e16c71cc467069 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:17:30,039 basehttp 12268 9180 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:17:30,273 basehttp 12268 9180 "GET /__debug__/history_sidebar/?store_id=6f08b9ef5a454731a2c3686c4e60b6f9 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:18:00,103 basehttp 12268 18124 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:18:00,336 basehttp 12268 18124 "GET /__debug__/history_sidebar/?store_id=3225a05b6084460aae4330ab6d1187c0 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:18:30,053 basehttp 12268 18124 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:18:30,277 basehttp 12268 18124 "GET /__debug__/history_sidebar/?store_id=2f7929b990df4345b4a3c3b3d0043669 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:19:00,052 basehttp 12268 18124 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:00,273 basehttp 12268 18124 "GET /__debug__/history_sidebar/?store_id=b4a494a3df3e4885a403aea9987a636a HTTP/1.1" 200 9389
+INFO 2026-01-26 11:19:05,274 basehttp 12268 17588 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:05,506 basehttp 12268 17588 "GET /__debug__/history_sidebar/?store_id=0c77c10f2c344ff48aaec64fbc795137 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:19:07,789 basehttp 12268 17588 "GET /accounts/login/ HTTP/1.1" 200 18852
+INFO 2026-01-26 11:19:07,936 basehttp 12268 17588 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:18,088 basehttp 12268 17588 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:19:18,147 basehttp 12268 17588 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 11:19:18,296 basehttp 12268 17588 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:30,044 basehttp 12268 7080 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:30,280 basehttp 12268 7080 "GET /__debug__/history_sidebar/?store_id=d0c1240f421841f9af87e2f023e9850b HTTP/1.1" 200 9389
+INFO 2026-01-26 11:19:35,171 basehttp 12268 17000 "GET /painel/ HTTP/1.1" 200 18910
+INFO 2026-01-26 11:19:35,272 basehttp 12268 17000 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:36,533 basehttp 12268 17000 "GET /painel/produtos/ HTTP/1.1" 200 44890
+INFO 2026-01-26 11:19:36,643 basehttp 12268 17000 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:38,377 basehttp 12268 17000 "GET /painel/produtos/novo/ HTTP/1.1" 200 26315
+INFO 2026-01-26 11:19:38,482 basehttp 12268 17000 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:19:45,954 basehttp 12268 17000 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 11:19:46,047 basehttp 12268 17000 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:24:12,018 autoreload 1196 14904 Watching for file changes with StatReloader
+INFO 2026-01-26 11:24:25,165 basehttp 1196 21448 "GET /?ide_webview_request_time=1769437464716 HTTP/1.1" 200 21256
+INFO 2026-01-26 11:24:25,392 basehttp 1196 21448 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:24:25,416 log 1196 17524 Not Found: /@vite/client
+WARNING 2026-01-26 11:24:25,416 basehttp 1196 17524 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:29:38,279 autoreload 6624 12996 Watching for file changes with StatReloader
+INFO 2026-01-26 11:29:42,235 basehttp 6624 17228 "GET / HTTP/1.1" 200 22320
+INFO 2026-01-26 11:29:42,730 basehttp 6624 17228 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:29:49,122 basehttp 6624 16908 "GET /cart/ HTTP/1.1" 200 21346
+INFO 2026-01-26 11:29:49,319 basehttp 6624 16908 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:29:50,968 basehttp 6624 16908 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 11:29:51,105 basehttp 6624 16908 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:29:53,094 basehttp 6624 16908 "GET /products/ HTTP/1.1" 200 53049
+INFO 2026-01-26 11:29:53,341 basehttp 6624 16908 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:29:55,618 views 6624 16908 Product Esponja de Aço added to cart 51d8df43-5052-4141-b5cc-ecee0486f0ba
+INFO 2026-01-26 11:29:55,695 basehttp 6624 16908 "POST /cart/add/ HTTP/1.1" 200 103
+INFO 2026-01-26 11:29:55,947 basehttp 6624 16908 "GET /__debug__/history_sidebar/?store_id=b119849b686e4efbab22b15c66d714c3 HTTP/1.1" 200 9378
+INFO 2026-01-26 11:29:56,374 views 6624 16908 Product Pano de Prato Algodão added to cart 51d8df43-5052-4141-b5cc-ecee0486f0ba
+INFO 2026-01-26 11:29:56,441 basehttp 6624 16908 "POST /cart/add/ HTTP/1.1" 200 103
+INFO 2026-01-26 11:29:56,676 basehttp 6624 16908 "GET /__debug__/history_sidebar/?store_id=fa4db84be97f4924af532f146906c3ce HTTP/1.1" 200 9380
+INFO 2026-01-26 11:29:56,942 views 6624 16908 Product Papel Higiênico 12 rolos added to cart 51d8df43-5052-4141-b5cc-ecee0486f0ba
+INFO 2026-01-26 11:29:57,027 basehttp 6624 16908 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:29:57,267 basehttp 6624 16908 "GET /__debug__/history_sidebar/?store_id=119e87de76f24d2aae2a4b8d07c182f6 HTTP/1.1" 200 9380
+INFO 2026-01-26 11:29:58,112 views 6624 16908 Product Sabonete em Barra 90g added to cart 51d8df43-5052-4141-b5cc-ecee0486f0ba
+INFO 2026-01-26 11:29:58,213 basehttp 6624 16908 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:29:58,466 basehttp 6624 16908 "GET /__debug__/history_sidebar/?store_id=d650cd0c7b4c4c19b74dda957c174ec1 HTTP/1.1" 200 9380
+INFO 2026-01-26 11:29:58,670 views 6624 16908 Product Shampoo Hidratante 350ml added to cart 51d8df43-5052-4141-b5cc-ecee0486f0ba
+INFO 2026-01-26 11:29:58,763 basehttp 6624 16908 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:29:59,008 basehttp 6624 16908 "GET /__debug__/history_sidebar/?store_id=e62c40010ea5481c9b9a53c4d4ad6a9a HTTP/1.1" 200 9380
+INFO 2026-01-26 11:29:59,654 views 6624 16908 Product Desinfetante Lavanda 2L added to cart 51d8df43-5052-4141-b5cc-ecee0486f0ba
+INFO 2026-01-26 11:29:59,736 basehttp 6624 16908 "POST /cart/add/ HTTP/1.1" 200 104
+INFO 2026-01-26 11:29:59,980 basehttp 6624 16908 "GET /__debug__/history_sidebar/?store_id=57b4e9e4aca44bc989a384ea04e371c4 HTTP/1.1" 200 9380
+INFO 2026-01-26 11:30:04,485 basehttp 6624 7848 "GET /products/ HTTP/1.1" 200 53150
+INFO 2026-01-26 11:30:04,645 basehttp 6624 7848 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:30:04,718 basehttp 6624 7848 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:30:13,963 basehttp 6624 5188 "GET /painel/ HTTP/1.1" 200 19012
+INFO 2026-01-26 11:30:14,110 basehttp 6624 5188 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:30:14,126 basehttp 6624 5188 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:30:15,753 basehttp 6624 18276 "GET /painel/produtos/ HTTP/1.1" 200 44992
+INFO 2026-01-26 11:30:15,920 basehttp 6624 18276 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:30:15,961 basehttp 6624 18276 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:30:29,067 basehttp 6624 3292 "GET /painel/produtos/novo/ HTTP/1.1" 200 26417
+INFO 2026-01-26 11:30:29,204 basehttp 6624 3292 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:30:29,220 basehttp 6624 3292 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:30:59,215 basehttp 6624 20932 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:30:59,239 basehttp 6624 20932 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:30:59,468 basehttp 6624 13232 "GET /__debug__/history_sidebar/?store_id=62fd83fe08254a09a435fca1fb7105b9 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:31:15,903 basehttp 6624 8448 "GET /?ide_webview_request_time=1769437464716 HTTP/1.1" 200 21255
+INFO 2026-01-26 11:31:16,236 basehttp 6624 8448 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:31:16,796 log 6624 8448 Not Found: /@vite/client
+WARNING 2026-01-26 11:31:16,796 basehttp 6624 8448 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:31:28,539 basehttp 6624 3292 "GET /__debug__/render_panel/?store_id=62fd83fe08254a09a435fca1fb7105b9&panel_id=SQLPanel HTTP/1.1" 200 115601
+INFO 2026-01-26 11:31:29,218 basehttp 6624 3292 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:31:29,236 basehttp 6624 3292 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:31:29,450 basehttp 6624 4532 "GET /__debug__/history_sidebar/?store_id=23d86c1aa07849d28605d0e804decc17 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:31:39,127 basehttp 6624 17700 "GET /__debug__/render_panel/?store_id=23d86c1aa07849d28605d0e804decc17&panel_id=SignalsPanel HTTP/1.1" 200 2372
+INFO 2026-01-26 11:31:46,142 basehttp 6624 10112 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:31:46,379 basehttp 6624 10112 "GET /__debug__/history_sidebar/?store_id=dbefbca580e04013bf2425f647bbb196 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:31:48,977 basehttp 6624 17700 "GET / HTTP/1.1" 200 22435
+INFO 2026-01-26 11:31:49,124 basehttp 6624 17700 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:31:49,140 basehttp 6624 17700 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:31:53,600 basehttp 6624 20636 "GET /__debug__/render_panel/?store_id=e6b1ad80e5034b2eb4c292fea305b786&panel_id=HistoryPanel HTTP/1.1" 200 42590
+INFO 2026-01-26 11:31:53,611 basehttp 6624 20636 "GET /static/debug_toolbar/js/history.js HTTP/1.1" 200 3330
+ERROR 2026-01-26 11:32:05,180 log 6624 20636 Internal Server Error: /accounts/profile/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/profile.html
+ERROR 2026-01-26 11:32:05,215 basehttp 6624 20636 "GET /accounts/profile/ HTTP/1.1" 500 101111
+INFO 2026-01-26 11:32:08,750 basehttp 6624 20636 "GET /products/ HTTP/1.1" 200 53150
+INFO 2026-01-26 11:32:08,993 basehttp 6624 20636 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:32:09,021 basehttp 6624 20636 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:32:09,322 basehttp 6624 21304 "GET /products/categories/ HTTP/1.1" 200 19895
+INFO 2026-01-26 11:32:09,452 basehttp 6624 21304 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:32:09,464 basehttp 6624 21304 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:32:11,392 basehttp 6624 15804 "GET /products/categories/ HTTP/1.1" 200 19895
+INFO 2026-01-26 11:32:11,520 basehttp 6624 15804 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:32:11,534 basehttp 6624 15804 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:32:12,647 basehttp 6624 7328 "GET /products/category/bebidas/ HTTP/1.1" 200 30966
+INFO 2026-01-26 11:32:12,781 basehttp 6624 7328 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:32:12,796 basehttp 6624 7328 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:32:16,140 basehttp 6624 10112 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:32:16,378 basehttp 6624 10112 "GET /__debug__/history_sidebar/?store_id=bc8ab9e8b9dd42719c460840c78bfc8d HTTP/1.1" 200 9389
+INFO 2026-01-26 11:32:41,237 basehttp 6624 10112 "GET /?ide_webview_request_time=1769437464716 HTTP/1.1" 200 21255
+INFO 2026-01-26 11:32:41,618 basehttp 6624 10112 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:32:42,075 log 6624 10112 Not Found: /@vite/client
+WARNING 2026-01-26 11:32:42,076 basehttp 6624 10112 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:32:43,313 basehttp 6624 7372 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:32:43,338 basehttp 6624 7372 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:32:44,270 basehttp 6624 17864 "GET /__debug__/history_sidebar/?store_id=9250eb026258495cace31fa70424c74f HTTP/1.1" 200 9390
+INFO 2026-01-26 11:32:45,142 basehttp 6624 19412 "GET /?ide_webview_request_time=1769437464716 HTTP/1.1" 200 21255
+INFO 2026-01-26 11:32:45,447 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:32:45,702 log 6624 19412 Not Found: /@vite/client
+WARNING 2026-01-26 11:32:45,702 basehttp 6624 19412 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:33:02,910 basehttp 6624 17864 "GET /painel/ HTTP/1.1" 200 19012
+INFO 2026-01-26 11:33:03,040 basehttp 6624 17864 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:33:03,054 basehttp 6624 17864 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:33:05,783 basehttp 6624 6588 "GET /painel/produtos/ HTTP/1.1" 200 44991
+INFO 2026-01-26 11:33:05,935 basehttp 6624 6588 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:33:05,948 basehttp 6624 6588 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:33:08,014 basehttp 6624 6672 "GET /painel/produtos/novo/ HTTP/1.1" 200 26416
+INFO 2026-01-26 11:33:08,141 basehttp 6624 6672 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:33:08,155 basehttp 6624 6672 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:33:15,361 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:33:15,607 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=7536c27de40141ceaffd002eaf144e87 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:33:38,152 basehttp 6624 10108 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:33:38,169 basehttp 6624 10108 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:33:38,403 basehttp 6624 2892 "GET /__debug__/history_sidebar/?store_id=86c1c5049c0f47b48af980cdddfef3dc HTTP/1.1" 200 9390
+INFO 2026-01-26 11:33:45,360 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:33:45,604 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=50f7459ad68047e6a433470f6c53d26b HTTP/1.1" 200 9389
+INFO 2026-01-26 11:34:08,168 basehttp 6624 2892 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:08,183 basehttp 6624 2892 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:34:08,423 basehttp 6624 8772 "GET /__debug__/history_sidebar/?store_id=31603ff88f624563b7d6f10a707e573a HTTP/1.1" 200 9390
+INFO 2026-01-26 11:34:15,362 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:34:15,600 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=fd4f3e6e2c0f4e01ae7adbe2340f4365 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:34:32,929 basehttp 6624 8772 "POST /painel/produtos/novo/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:34:33,042 basehttp 6624 8772 "GET /painel/produtos/ HTTP/1.1" 200 46591
+INFO 2026-01-26 11:34:33,210 basehttp 6624 8772 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:33,226 basehttp 6624 8772 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:34:37,135 basehttp 6624 21196 "GET / HTTP/1.1" 200 22421
+INFO 2026-01-26 11:34:37,294 basehttp 6624 21196 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:37,306 basehttp 6624 21196 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:34:38,134 basehttp 6624 4052 "GET /products/categories/ HTTP/1.1" 200 19895
+INFO 2026-01-26 11:34:38,267 basehttp 6624 4052 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:38,285 basehttp 6624 4052 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:34:39,228 basehttp 6624 17020 "GET / HTTP/1.1" 200 22421
+INFO 2026-01-26 11:34:39,383 basehttp 6624 17020 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:39,400 basehttp 6624 17020 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:34:39,780 basehttp 6624 15908 "GET /products/categories/ HTTP/1.1" 200 19895
+INFO 2026-01-26 11:34:39,953 basehttp 6624 15908 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:39,968 basehttp 6624 15908 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:34:40,724 basehttp 6624 3412 "GET /products/ HTTP/1.1" 200 53125
+INFO 2026-01-26 11:34:40,875 basehttp 6624 3412 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:34:40,890 basehttp 6624 3412 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+ERROR 2026-01-26 11:34:44,908 log 6624 20152 Internal Server Error: /products/product/teste/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 11:34:44,939 basehttp 6624 20152 "GET /products/product/teste/ HTTP/1.1" 500 169504
+INFO 2026-01-26 11:34:45,364 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:34:45,603 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=646a4832be62463f83adc2253badb8bc HTTP/1.1" 200 9389
+ERROR 2026-01-26 11:34:49,542 log 6624 20152 Internal Server Error: /products/product/esponja-de-aco/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 11:34:49,578 basehttp 6624 20152 "GET /products/product/esponja-de-aco/ HTTP/1.1" 500 169693
+ERROR 2026-01-26 11:34:54,116 log 6624 20152 Internal Server Error: /accounts/profile/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/profile.html
+ERROR 2026-01-26 11:34:54,151 basehttp 6624 20152 "GET /accounts/profile/ HTTP/1.1" 500 101119
+INFO 2026-01-26 11:35:15,364 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:15,599 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=4206d5b5e59f49c38c78a8cd9c46c43c HTTP/1.1" 200 9389
+INFO 2026-01-26 11:35:21,311 basehttp 6624 20152 "GET /cart/summary/ HTTP/1.1" 200 624
+WARNING 2026-01-26 11:35:21,335 basehttp 6624 20152 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:35:21,566 basehttp 6624 18340 "GET /__debug__/history_sidebar/?store_id=2fe730f0e9c24feaaa5b2236c2db9c7c HTTP/1.1" 200 9390
+INFO 2026-01-26 11:35:23,930 basehttp 6624 18340 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:35:23,959 basehttp 6624 18340 "GET / HTTP/1.1" 200 21218
+INFO 2026-01-26 11:35:24,163 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:25,096 basehttp 6624 18340 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:35:25,247 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:26,367 basehttp 6624 18340 "GET /accounts/register/ HTTP/1.1" 200 19383
+INFO 2026-01-26 11:35:26,500 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:31,970 basehttp 6624 18340 "GET / HTTP/1.1" 200 21216
+INFO 2026-01-26 11:35:32,093 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:40,175 basehttp 6624 18340 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:35:40,301 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:41,717 basehttp 6624 18340 "GET /accounts/register/ HTTP/1.1" 200 19383
+INFO 2026-01-26 11:35:41,888 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:45,366 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:35:45,599 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=7e4e33646e924aa680796738d8ba3df1 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:36:12,263 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:36:13,258 basehttp 6624 18340 "GET /__debug__/history_sidebar/?store_id=dc5f5d0c63d54c2e8258b88ab515f347 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:36:15,372 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:36:15,600 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=3b042173ecf746e4b352e8c8ecb1ea65 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:36:42,267 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:36:43,256 basehttp 6624 18340 "GET /__debug__/history_sidebar/?store_id=57199723c3284aeda673dbb17ebb044b HTTP/1.1" 200 9389
+INFO 2026-01-26 11:36:45,367 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:36:45,599 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=79bc63d85b654fdaa8ea581f6113a1f4 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:37:12,271 basehttp 6624 18340 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:37:13,241 basehttp 6624 18340 "GET /__debug__/history_sidebar/?store_id=d3c1ede21db74785b2fb096e297965d7 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:37:15,369 basehttp 6624 19412 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:37:15,603 basehttp 6624 19412 "GET /__debug__/history_sidebar/?store_id=cb65b8c40f2e4d58a07c1d6751ee1247 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:37:42,267 basehttp 6624 10644 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:37:43,560 basehttp 6624 10644 "GET /__debug__/history_sidebar/?store_id=4f1a19c48fe64acfb409ae055c58b3d1 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:37:45,372 basehttp 6624 18040 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:37:45,609 basehttp 6624 18040 "GET /__debug__/history_sidebar/?store_id=ab158b678b4744c3af87ef50f6317291 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:37:47,984 autoreload 17000 3916 Watching for file changes with StatReloader
+INFO 2026-01-26 11:38:03,396 basehttp 6624 18040 "GET /?ide_webview_request_time=1769438283233 HTTP/1.1" 200 21256
+INFO 2026-01-26 11:38:03,534 basehttp 6624 18040 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:38:03,565 log 6624 9224 Not Found: /@vite/client
+WARNING 2026-01-26 11:38:03,565 basehttp 6624 9224 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:38:12,270 basehttp 6624 19764 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:38:13,240 basehttp 6624 19764 "GET /__debug__/history_sidebar/?store_id=67bc54634655406fa1c3f3d4033513cf HTTP/1.1" 200 9389
+INFO 2026-01-26 11:38:23,463 basehttp 6624 3464 "GET /accounts/profile/ HTTP/1.1" 200 18608
+INFO 2026-01-26 11:38:23,563 basehttp 6624 3464 - Broken pipe from ('127.0.0.1', 62327)
+INFO 2026-01-26 11:38:30,619 autoreload 15972 16012 Watching for file changes with StatReloader
+INFO 2026-01-26 11:38:33,529 basehttp 6624 2176 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:38:33,762 basehttp 6624 2176 "GET /__debug__/history_sidebar/?store_id=1058ed7df3ec4df18403292b9038254e HTTP/1.1" 200 9389
+INFO 2026-01-26 11:38:42,263 basehttp 6624 7848 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:38:43,260 basehttp 6624 7848 "GET /__debug__/history_sidebar/?store_id=f7085a85b31b416fa5fa567115156894 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:38:45,196 basehttp 6624 14488 "GET /?ide_webview_request_time=1769438325084 HTTP/1.1" 200 21255
+INFO 2026-01-26 11:38:45,413 basehttp 6624 14488 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:38:45,549 log 6624 14488 Not Found: /@vite/client
+WARNING 2026-01-26 11:38:45,554 basehttp 6624 14488 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:39:12,281 basehttp 6624 20172 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:39:13,286 basehttp 6624 20172 "GET /__debug__/history_sidebar/?store_id=79c516dc2a4f4cceaccac77be078f55e HTTP/1.1" 200 9389
+INFO 2026-01-26 11:39:16,292 basehttp 6624 18680 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:39:17,256 basehttp 6624 18680 "GET /__debug__/history_sidebar/?store_id=2c067945a44245989b122e7e88f33d0b HTTP/1.1" 200 9389
+INFO 2026-01-26 11:39:46,353 basehttp 6624 20708 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:39:47,260 basehttp 6624 20708 "GET /__debug__/history_sidebar/?store_id=f507591de67d4368b85413fae7db73e5 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:39:52,076 autoreload 15972 16012 C:\Users\2mbet\Desktop\sistema-distribuidora\accounts\views.py changed, reloading.
+INFO 2026-01-26 11:39:52,100 autoreload 6624 12996 C:\Users\2mbet\Desktop\sistema-distribuidora\accounts\views.py changed, reloading.
+INFO 2026-01-26 11:39:53,769 autoreload 7292 13160 Watching for file changes with StatReloader
+INFO 2026-01-26 11:39:53,833 autoreload 20256 10644 Watching for file changes with StatReloader
+INFO 2026-01-26 11:40:12,642 basehttp 7292 11324 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:40:13,310 basehttp 7292 11324 "GET /__debug__/history_sidebar/?store_id=2af4e25f4f1242e0828ebe9e032ca00b HTTP/1.1" 200 9390
+INFO 2026-01-26 11:40:16,295 basehttp 7292 13376 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:40:17,260 basehttp 7292 13376 "GET /__debug__/history_sidebar/?store_id=97975e91550241a2ba0db28352b7682a HTTP/1.1" 200 9389
+INFO 2026-01-26 11:40:46,260 basehttp 7292 8696 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:40:47,249 basehttp 7292 8696 "GET /__debug__/history_sidebar/?store_id=161337aaf819442ab9c575b582255e03 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:41:12,269 basehttp 7292 18676 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:13,314 basehttp 7292 18676 "GET /__debug__/history_sidebar/?store_id=8de09932c6194a8c810137dd864c83cf HTTP/1.1" 200 9389
+INFO 2026-01-26 11:41:17,651 basehttp 7292 16524 "GET / HTTP/1.1" 200 21216
+INFO 2026-01-26 11:41:17,801 basehttp 7292 16524 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:21,017 basehttp 7292 16524 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:41:21,164 basehttp 7292 16524 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:27,248 basehttp 7292 8452 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:41:27,318 basehttp 7292 8452 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 11:41:27,490 basehttp 7292 8452 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:29,521 basehttp 7292 8452 "GET /accounts/profile/ HTTP/1.1" 200 19734
+INFO 2026-01-26 11:41:29,642 basehttp 7292 8452 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:38,151 basehttp 7292 19120 "GET /painel/ HTTP/1.1" 200 18910
+INFO 2026-01-26 11:41:38,294 basehttp 7292 19120 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:41,430 basehttp 7292 19120 "GET /painel/produtos/ HTTP/1.1" 200 46490
+INFO 2026-01-26 11:41:41,571 basehttp 7292 19120 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:43,189 basehttp 7292 19120 "GET /painel/produtos/novo/ HTTP/1.1" 200 26315
+INFO 2026-01-26 11:41:43,316 basehttp 7292 19120 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:41:51,438 basehttp 7292 7664 "GET /?ide_webview_request_time=1769438325084 HTTP/1.1" 200 21255
+INFO 2026-01-26 11:41:51,938 basehttp 7292 7664 "GET /cart/summary/ HTTP/1.1" 200 67
+WARNING 2026-01-26 11:41:52,145 log 7292 7664 Not Found: /@vite/client
+WARNING 2026-01-26 11:41:52,146 basehttp 7292 7664 "GET /@vite/client HTTP/1.1" 404 12231
+INFO 2026-01-26 11:42:01,063 basehttp 7292 7232 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 11:42:01,172 basehttp 7292 7232 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:06,595 basehttp 7292 9000 "GET /products/ HTTP/1.1" 200 53024
+INFO 2026-01-26 11:42:06,716 basehttp 7292 9000 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 11:42:11,169 log 7292 9000 Internal Server Error: /products/product/teste/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+INFO 2026-01-26 11:42:11,226 basehttp 7292 9000 - Broken pipe from ('127.0.0.1', 64832)
+ERROR 2026-01-26 11:42:12,924 log 7292 7540 Internal Server Error: /products/product/teste/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 11:42:12,950 basehttp 7292 7540 "GET /products/product/teste/ HTTP/1.1" 500 169505
+ERROR 2026-01-26 11:42:18,046 log 7292 3216 Internal Server Error: /products/product/esponja-de-aco/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 11:42:18,070 basehttp 7292 3216 "GET /products/product/esponja-de-aco/ HTTP/1.1" 500 169694
+INFO 2026-01-26 11:42:22,274 basehttp 7292 18652 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:22,878 basehttp 7292 3216 "GET /accounts/profile/ HTTP/1.1" 200 19734
+INFO 2026-01-26 11:42:22,999 basehttp 7292 3216 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:23,253 basehttp 7292 18652 "GET /__debug__/history_sidebar/?store_id=05aa2a8330774b2e979504b3cf3e6ec7 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:42:24,839 basehttp 7292 2144 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:42:24,865 basehttp 7292 2144 "GET / HTTP/1.1" 200 21218
+INFO 2026-01-26 11:42:25,015 basehttp 7292 2144 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:25,940 basehttp 7292 2144 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:42:26,057 basehttp 7292 2144 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:29,864 basehttp 7292 2144 "GET /accounts/register/ HTTP/1.1" 200 21336
+INFO 2026-01-26 11:42:29,975 basehttp 7292 2144 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:52,307 basehttp 7292 8084 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:42:53,258 basehttp 7292 8084 "GET /__debug__/history_sidebar/?store_id=1d145e0f9f2441b78cfba1fd39bc8238 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:42:56,614 basehttp 7292 15096 "POST /accounts/register/ HTTP/1.1" 200 21739
+INFO 2026-01-26 11:42:56,719 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:03,884 basehttp 7292 15096 "POST /accounts/register/ HTTP/1.1" 200 21764
+INFO 2026-01-26 11:43:03,986 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:10,635 views 7292 15096 New user registered: marcoantonio567
+INFO 2026-01-26 11:43:10,730 basehttp 7292 15096 "POST /accounts/register/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:43:10,799 basehttp 7292 15096 "GET / HTTP/1.1" 200 22422
+INFO 2026-01-26 11:43:10,949 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:21,216 basehttp 7292 15096 "GET /accounts/profile/ HTTP/1.1" 200 19520
+INFO 2026-01-26 11:43:21,321 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:22,313 basehttp 7292 8084 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:23,264 basehttp 7292 8084 "GET /__debug__/history_sidebar/?store_id=6a35653f4a0442d495f8e5ad0228f446 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:43:28,657 basehttp 7292 15096 "GET / HTTP/1.1" 200 22074
+INFO 2026-01-26 11:43:28,792 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:31,245 basehttp 7292 15096 "GET /products/ HTTP/1.1" 200 52779
+INFO 2026-01-26 11:43:31,346 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:32,701 views 7292 15096 Product teste added to cart c943a0b2-806b-449b-9b93-522a1aa76078
+INFO 2026-01-26 11:43:32,774 basehttp 7292 15096 "POST /cart/add/ HTTP/1.1" 200 106
+INFO 2026-01-26 11:43:33,095 basehttp 7292 15096 "GET /__debug__/history_sidebar/?store_id=4eddc693a1534004a97161431f939220 HTTP/1.1" 200 9378
+INFO 2026-01-26 11:43:35,265 basehttp 7292 15096 "GET /cart/ HTTP/1.1" 200 24303
+INFO 2026-01-26 11:43:35,425 basehttp 7292 15096 "GET /cart/summary/ HTTP/1.1" 200 228
+WARNING 2026-01-26 11:43:35,441 basehttp 7292 15096 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:43:37,332 basehttp 7292 8712 "GET /orders/checkout/ HTTP/1.1" 200 30755
+INFO 2026-01-26 11:43:37,470 basehttp 7292 8712 "GET /cart/summary/ HTTP/1.1" 200 228
+WARNING 2026-01-26 11:43:37,483 basehttp 7292 8712 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:43:52,305 basehttp 7292 1344 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:43:53,240 basehttp 7292 1344 "GET /__debug__/history_sidebar/?store_id=9a9033ed39364382814f14d9ba9e5ae5 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:44:07,450 basehttp 7292 9888 "GET /cart/summary/ HTTP/1.1" 200 228
+WARNING 2026-01-26 11:44:07,464 basehttp 7292 9888 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 11:44:07,700 basehttp 7292 2392 "GET /__debug__/history_sidebar/?store_id=1a3528e6863d4306806a0e2b445aa922 HTTP/1.1" 200 9389
+ERROR 2026-01-26 11:44:16,680 views 7292 9676 Error sending order confirmation email: orders/order_confirmation_email.html
+INFO 2026-01-26 11:44:16,680 views 7292 9676 Order 202601260001 created successfully
+INFO 2026-01-26 11:44:16,781 basehttp 7292 9676 "POST /orders/checkout/ HTTP/1.1" 302 0
+ERROR 2026-01-26 11:44:16,874 log 7292 9676 Internal Server Error: /orders/success/202601260001/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: orders/order_success.html
+ERROR 2026-01-26 11:44:16,941 basehttp 7292 9676 "GET /orders/success/202601260001/ HTTP/1.1" 500 101783
+INFO 2026-01-26 11:44:22,119 basehttp 7292 9676 "GET /accounts/profile/ HTTP/1.1" 200 20843
+INFO 2026-01-26 11:44:22,243 basehttp 7292 9676 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:22,285 basehttp 7292 6052 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:23,256 basehttp 7292 6052 "GET /__debug__/history_sidebar/?store_id=871186b5840a4288b53e0c10ca0fb361 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:44:28,103 basehttp 7292 12568 "GET /products/ HTTP/1.1" 200 52779
+INFO 2026-01-26 11:44:28,205 basehttp 7292 12568 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:32,884 basehttp 7292 12568 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-01-26 11:44:32,909 basehttp 7292 12568 "GET / HTTP/1.1" 200 21218
+INFO 2026-01-26 11:44:33,070 basehttp 7292 12568 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:33,689 basehttp 7292 12568 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 11:44:33,804 basehttp 7292 12568 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:35,464 basehttp 7292 16392 "GET /accounts/register/ HTTP/1.1" 200 21336
+INFO 2026-01-26 11:44:35,560 basehttp 7292 16392 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:52,289 basehttp 7292 7208 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:44:53,258 basehttp 7292 7208 "GET /__debug__/history_sidebar/?store_id=771054f0c9374a1dacff83da140fe2a4 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:45:05,562 basehttp 7292 16392 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:45:05,909 basehttp 7292 16392 "GET /__debug__/history_sidebar/?store_id=4a8f50238f304a069b442145f1fbe376 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:45:22,299 basehttp 7292 7208 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:45:23,261 basehttp 7292 7208 "GET /__debug__/history_sidebar/?store_id=ec6994acd89445359345ae947586823c HTTP/1.1" 200 9389
+INFO 2026-01-26 11:45:35,571 basehttp 7292 16392 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:45:35,900 basehttp 7292 16392 "GET /__debug__/history_sidebar/?store_id=7e26562655054564bcbc87025851bb60 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:45:52,278 basehttp 7292 7208 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:45:53,251 basehttp 7292 7208 "GET /__debug__/history_sidebar/?store_id=357f5f4684f142fb8877e8f21fc37fbd HTTP/1.1" 200 9389
+INFO 2026-01-26 11:46:05,595 basehttp 7292 3148 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:46:05,847 basehttp 7292 3148 "GET /__debug__/history_sidebar/?store_id=e50d9bf4de8e461593e7b379bdce5e15 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:46:22,309 basehttp 7292 20004 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:46:23,270 basehttp 7292 20004 "GET /__debug__/history_sidebar/?store_id=063f1e4f9875404b85b3c8b82a5503fb HTTP/1.1" 200 9389
+INFO 2026-01-26 11:46:35,578 basehttp 7292 16252 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:46:35,886 basehttp 7292 16252 "GET /__debug__/history_sidebar/?store_id=0d7748a23c2241d18d0a4daee103a7eb HTTP/1.1" 200 9389
+INFO 2026-01-26 11:47:05,565 basehttp 7292 3016 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:47:05,816 basehttp 7292 3016 "GET /__debug__/history_sidebar/?store_id=b991f6f7154a44a4b96ecba71011080b HTTP/1.1" 200 9389
+INFO 2026-01-26 11:47:12,276 basehttp 7292 7824 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:47:13,252 basehttp 7292 7824 "GET /__debug__/history_sidebar/?store_id=16d754ae6a1f43aab4a9a973c824b65f HTTP/1.1" 200 9389
+INFO 2026-01-26 11:47:35,599 basehttp 7292 20140 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:47:35,858 basehttp 7292 20140 "GET /__debug__/history_sidebar/?store_id=95aa6b5e511e4a03a19d2344e38f2f73 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:48:06,289 basehttp 7292 15016 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:48:07,327 basehttp 7292 15016 "GET /__debug__/history_sidebar/?store_id=2634f790d89347e4b839d61eef997ff3 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:56:33,555 basehttp 7292 22868 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:56:33,992 basehttp 7292 22808 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:56:34,316 basehttp 7292 22808 "GET /__debug__/history_sidebar/?store_id=b54e1aeebb4c4fecb906bf6715329abb HTTP/1.1" 200 9391
+INFO 2026-01-26 11:56:35,276 basehttp 7292 22868 "GET /__debug__/history_sidebar/?store_id=0e4d27f515b04c8b80697c624a31224d HTTP/1.1" 200 9390
+INFO 2026-01-26 11:56:35,592 basehttp 7292 22808 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:56:35,878 basehttp 7292 22808 "GET /__debug__/history_sidebar/?store_id=a011f2bb65fa41bea4002108d0efbc34 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:56:39,764 basehttp 7292 22808 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:56:40,041 basehttp 7292 22808 "GET /__debug__/history_sidebar/?store_id=07a63760f56b4a239d0a625179056c69 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:56:46,292 basehttp 7292 9020 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:56:47,249 basehttp 7292 9020 "GET /__debug__/history_sidebar/?store_id=c20f1d79b8d945d5a72af46971b9afb7 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:57:06,301 basehttp 7292 22804 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:57:07,265 basehttp 7292 22804 "GET /__debug__/history_sidebar/?store_id=77df4e17a1fa46efacf8b0e162ce5f67 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:57:12,275 basehttp 7292 23376 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:57:13,248 basehttp 7292 3620 "GET /__debug__/history_sidebar/?store_id=5cf63083dd2a44bea86d74cc113f7c96 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:57:16,268 basehttp 7292 21296 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:57:17,255 basehttp 7292 21296 "GET /__debug__/history_sidebar/?store_id=37f0d33890d34748a4ed6151222ecf58 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:57:36,295 basehttp 7292 21964 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:57:37,258 basehttp 7292 21964 "GET /__debug__/history_sidebar/?store_id=6952dd74455a4e759b9b5ba4dee3d685 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:58:12,301 basehttp 7292 16012 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:58:12,321 basehttp 7292 5868 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:58:12,377 basehttp 7292 5868 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:58:13,265 basehttp 7292 5868 "GET /__debug__/history_sidebar/?store_id=b1e16f9d7a5a46af97c412910cff669a HTTP/1.1" 200 9389
+INFO 2026-01-26 11:58:13,275 basehttp 7292 16012 "GET /__debug__/history_sidebar/?store_id=177e96650b5b4804bf41cf5f6dac7dbc HTTP/1.1" 200 9389
+INFO 2026-01-26 11:58:13,294 basehttp 7292 21296 "GET /__debug__/history_sidebar/?store_id=716e5b63f8a24858873ee97cf0a36661 HTTP/1.1" 200 9390
+INFO 2026-01-26 11:58:45,999 basehttp 7292 21616 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:58:46,419 basehttp 7292 21616 "GET /__debug__/history_sidebar/?store_id=6235304598d14183bb0f5cde078d4a1d HTTP/1.1" 200 9389
+INFO 2026-01-26 11:58:51,812 basehttp 7292 5284 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:58:52,054 basehttp 7292 5284 "GET /__debug__/history_sidebar/?store_id=8c954737b57644fb900e8c9170288794 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:59:12,270 basehttp 7292 17188 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:59:12,326 basehttp 7292 17188 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:59:13,250 basehttp 7292 17188 "GET /__debug__/history_sidebar/?store_id=a7fe0df3554f4429bf1f9799bbcd533f HTTP/1.1" 200 9389
+INFO 2026-01-26 11:59:13,272 basehttp 7292 4532 "GET /__debug__/history_sidebar/?store_id=c6b3814c1af14851b7ef908ea5c5e290 HTTP/1.1" 200 9389
+INFO 2026-01-26 11:59:21,687 basehttp 7292 15388 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:59:21,972 basehttp 7292 15388 "GET /__debug__/history_sidebar/?store_id=3bd68d0161904fa48206c4475011e4ab HTTP/1.1" 200 9389
+INFO 2026-01-26 11:59:51,700 basehttp 7292 12788 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 11:59:51,922 basehttp 7292 12788 "GET /__debug__/history_sidebar/?store_id=5762186b58b94fb09c32b7766767abea HTTP/1.1" 200 9389
+INFO 2026-01-26 12:00:12,277 basehttp 7292 20500 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:00:12,337 basehttp 7292 20500 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:00:13,246 basehttp 7292 20500 "GET /__debug__/history_sidebar/?store_id=272615e536d64137ada5473c441c7757 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:00:13,285 basehttp 7292 9520 "GET /__debug__/history_sidebar/?store_id=8eac6856d2d4415892e21495e925d507 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:00:21,670 basehttp 7292 22820 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:00:21,901 basehttp 7292 22820 "GET /__debug__/history_sidebar/?store_id=91c9280b129349e0aa1f4551a656bd77 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:00:51,667 basehttp 7292 16272 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:00:51,898 basehttp 7292 16272 "GET /__debug__/history_sidebar/?store_id=dbf2a62a9a7145559dab743f2897a38c HTTP/1.1" 200 9389
+INFO 2026-01-26 12:01:12,288 basehttp 7292 22812 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:01:12,338 basehttp 7292 22812 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:01:13,266 basehttp 7292 22812 "GET /__debug__/history_sidebar/?store_id=b63491fd1ec34e6b9344c0ddb982886f HTTP/1.1" 200 9389
+INFO 2026-01-26 12:01:13,284 basehttp 7292 344 "GET /__debug__/history_sidebar/?store_id=c07220236e6141979c723eb65dfafcb6 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:01:21,679 basehttp 7292 16272 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:01:21,910 basehttp 7292 16272 "GET /__debug__/history_sidebar/?store_id=75f68e405a9d4ab893d563d0e843e519 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:01:51,667 basehttp 7292 22884 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:01:51,908 basehttp 7292 22884 "GET /__debug__/history_sidebar/?store_id=1b33638a1b0042a58f9368efdf60946e HTTP/1.1" 200 9389
+INFO 2026-01-26 12:02:21,674 basehttp 7292 4724 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:02:21,912 basehttp 7292 4724 "GET /__debug__/history_sidebar/?store_id=60494041f3ea443ba45fa9797e98a651 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:02:51,675 basehttp 7292 12656 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:02:51,907 basehttp 7292 12656 "GET /__debug__/history_sidebar/?store_id=ca9641c52d174381abcd36a0f84ae7ff HTTP/1.1" 200 9389
+INFO 2026-01-26 12:03:21,684 basehttp 7292 22760 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:03:22,227 basehttp 7292 22760 "GET /__debug__/history_sidebar/?store_id=72e822283bf54680b58e368d63fc4a08 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:03:51,664 basehttp 7292 9560 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:03:51,911 basehttp 7292 9560 "GET /__debug__/history_sidebar/?store_id=6eb0527f25d542cca81296929cc9f03e HTTP/1.1" 200 9389
+INFO 2026-01-26 12:04:21,671 basehttp 7292 6588 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:04:21,903 basehttp 7292 6588 "GET /__debug__/history_sidebar/?store_id=850873f821164c9385dbe20de1a78ec1 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:04:51,679 basehttp 7292 1596 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:04:51,912 basehttp 7292 1596 "GET /__debug__/history_sidebar/?store_id=514c37e53ea74e2197098fad59250118 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:05:21,670 basehttp 7292 2908 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:05:21,932 basehttp 7292 2908 "GET /__debug__/history_sidebar/?store_id=5e3d8c4ec314434aa1ec482be17d583c HTTP/1.1" 200 9389
+INFO 2026-01-26 12:05:51,663 basehttp 7292 18516 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:05:51,896 basehttp 7292 18516 "GET /__debug__/history_sidebar/?store_id=8b4fb3d900a74123ab82bcc050e103ba HTTP/1.1" 200 9389
+INFO 2026-01-26 12:06:21,661 basehttp 7292 23292 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:06:21,902 basehttp 7292 23292 "GET /__debug__/history_sidebar/?store_id=81dc5e95ba254ec7b1ceee8bf05b48cc HTTP/1.1" 200 9389
+INFO 2026-01-26 12:06:49,211 basehttp 7292 11016 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:06:49,492 basehttp 7292 11016 "GET /__debug__/history_sidebar/?store_id=a6106c54203641338ea265b01abfa135 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:06:51,677 basehttp 7292 22832 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:06:51,926 basehttp 7292 22832 "GET /__debug__/history_sidebar/?store_id=2f0f92b2ff254832b2b0e1f52e8ab12f HTTP/1.1" 200 9389
+INFO 2026-01-26 12:07:16,262 basehttp 7292 23240 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:07:17,685 basehttp 7292 23240 "GET /__debug__/history_sidebar/?store_id=3b92e0c4030a4323a9c5f743b5eb0ba1 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:07:21,824 basehttp 7292 21324 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:07:22,419 basehttp 7292 21324 "GET /__debug__/history_sidebar/?store_id=10d2ba4eae1f457e88e6fa977d7ed0ca HTTP/1.1" 200 9389
+INFO 2026-01-26 12:07:36,213 basehttp 7292 15632 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:07:36,450 basehttp 7292 15632 "GET /__debug__/history_sidebar/?store_id=621d4b6e1e4248799d3b2a2452dd5b98 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:07:38,595 basehttp 7292 15632 "GET /products/ HTTP/1.1" 200 51921
+INFO 2026-01-26 12:07:38,911 basehttp 7292 15632 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:07:46,262 basehttp 7292 14576 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:07:47,240 basehttp 7292 14576 "GET /__debug__/history_sidebar/?store_id=8296e08744ac49b7b62f50a666994678 HTTP/1.1" 200 9389
+INFO 2026-01-26 12:08:09,268 basehttp 7292 14832 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:10,411 basehttp 7292 14832 "GET /__debug__/history_sidebar/?store_id=6f8b964ed8894f26813bdf8f51730066 HTTP/1.1" 200 9389
+ERROR 2026-01-26 12:08:21,774 log 7292 14724 Internal Server Error: /products/product/teste/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 12:08:21,832 basehttp 7292 14724 "GET /products/product/teste/ HTTP/1.1" 500 169510
+ERROR 2026-01-26 12:08:27,154 log 7292 6508 Internal Server Error: /products/product/esponja-de-aco/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 12:08:27,182 basehttp 7292 6508 "GET /products/product/esponja-de-aco/ HTTP/1.1" 500 169700
+INFO 2026-01-26 12:08:28,823 basehttp 7292 6508 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 12:08:29,006 basehttp 7292 6508 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:34,422 basehttp 7292 7372 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2026-01-26 12:08:34,495 basehttp 7292 7372 "GET / HTTP/1.1" 200 22319
+INFO 2026-01-26 12:08:34,671 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:35,273 basehttp 7292 7372 "GET /painel/ HTTP/1.1" 200 18910
+INFO 2026-01-26 12:08:35,385 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:36,965 basehttp 7292 7372 "GET /painel/ HTTP/1.1" 200 18910
+INFO 2026-01-26 12:08:37,082 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:38,308 basehttp 7292 7372 "GET /painel/produtos/ HTTP/1.1" 200 46490
+INFO 2026-01-26 12:08:38,599 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:43,450 basehttp 7292 7372 "GET /painel/produtos/16/editar/ HTTP/1.1" 200 26415
+INFO 2026-01-26 12:08:43,568 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:47,271 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:48,255 basehttp 7292 7372 "GET /__debug__/history_sidebar/?store_id=f6258923d1a547768ee68a4a794f673d HTTP/1.1" 200 9389
+INFO 2026-01-26 12:08:52,487 basehttp 7292 7372 "GET /products/ HTTP/1.1" 200 53024
+INFO 2026-01-26 12:08:52,615 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:52,993 basehttp 7292 7372 "GET /products/categories/ HTTP/1.1" 200 19793
+INFO 2026-01-26 12:08:53,094 basehttp 7292 7372 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:54,102 basehttp 7292 19400 "GET /products/category/bebidas/ HTTP/1.1" 200 33240
+INFO 2026-01-26 12:08:54,230 basehttp 7292 19400 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:08:59,083 views 7292 19400 Product teste added to cart 9c7b3854-3091-4813-9204-92fe9872ba36
+INFO 2026-01-26 12:08:59,146 basehttp 7292 19400 "POST /cart/add/ HTTP/1.1" 200 106
+INFO 2026-01-26 12:08:59,366 basehttp 7292 19400 "GET /__debug__/history_sidebar/?store_id=dd7bef0a1e8f44b89f4f4736ac45e7ec HTTP/1.1" 200 9378
+ERROR 2026-01-26 12:09:01,864 log 7292 19400 Internal Server Error: /products/product/teste/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 264, in connect
+    sock = self.retry.call_with_retry(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\retry.py", line 46, in call_with_retry
+    return do()
+           ^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 265, in <lambda>
+    lambda: self._connect(), lambda error: self.disconnect(error)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 627, in _connect
+    raise err
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 615, in _connect
+    sock.connect(socket_address)
+ConnectionRefusedError: [WinError 10061] Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 104, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\views\generic\base.py", line 143, in dispatch
+    return handler(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 46, in _wrapper
+    return bound_method(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\decorators.py", line 126, in _wrapper_view
+    result = middleware.process_request(request)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\middleware\cache.py", line 158, in process_request
+    cache_key = get_cache_key(request, self.key_prefix, "GET", cache=self.cache)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\utils\cache.py", line 391, in get_cache_key
+    headerlist = cache.get(cache_key)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 42, in wrapper
+    return panel._record_call(cache, name, original_method, args, kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\debug_toolbar\panels\cache.py", line 149, in _record_call
+    value = original_method(*args, **kwargs)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 187, in get
+    return self._cache.get(key, default)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\cache\backends\redis.py", line 99, in get
+    value = client.get(key)
+            ^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\commands\core.py", line 1829, in get
+    return self.execute_command("GET", name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\client.py", line 533, in execute_command
+    conn = self.connection or pool.get_connection(command_name, **options)
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 1086, in get_connection
+    connection.connect()
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\redis\connection.py", line 270, in connect
+    raise ConnectionError(self._error_message(e))
+redis.exceptions.ConnectionError: Error 10061 connecting to 127.0.0.1:6379. Nenhuma conexão pôde ser feita porque a máquina de destino as recusou ativamente.
+ERROR 2026-01-26 12:09:01,892 basehttp 7292 19400 "GET /products/product/teste/ HTTP/1.1" 500 169522
+INFO 2026-01-26 12:09:05,070 basehttp 7292 3504 "GET /accounts/profile/ HTTP/1.1" 200 19838
+INFO 2026-01-26 12:09:05,210 basehttp 7292 3504 "GET /cart/summary/ HTTP/1.1" 200 228
+WARNING 2026-01-26 12:09:05,234 basehttp 7292 3504 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+INFO 2026-01-26 12:09:08,819 basehttp 7292 4952 "GET / HTTP/1.1" 200 22422
+INFO 2026-01-26 12:09:08,944 basehttp 7292 4952 "GET /cart/summary/ HTTP/1.1" 200 228
+WARNING 2026-01-26 12:09:08,962 basehttp 7292 4952 "GET /static/img/no-image.png HTTP/1.1" 404 1908
+ERROR 2026-01-26 12:09:11,996 log 7292 19840 Internal Server Error: /orders/list/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: orders/order_list.html
+ERROR 2026-01-26 12:09:12,026 basehttp 7292 19840 "GET /orders/list/ HTTP/1.1" 500 101079
+INFO 2026-01-26 12:09:16,640 basehttp 7292 1984 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2026-01-26 12:09:16,688 basehttp 7292 1984 "GET / HTTP/1.1" 200 21218
+INFO 2026-01-26 12:09:16,858 basehttp 7292 1984 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:09:18,791 basehttp 7292 1984 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 12:09:18,934 basehttp 7292 1984 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:09:22,344 basehttp 7292 1984 "GET /accounts/register/ HTTP/1.1" 200 21336
+INFO 2026-01-26 12:09:22,470 basehttp 7292 1984 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:09:33,546 basehttp 7292 13580 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 12:09:33,689 basehttp 7292 13580 "GET /cart/summary/ HTTP/1.1" 200 67
+ERROR 2026-01-26 12:09:34,892 log 7292 13580 Internal Server Error: /accounts/password_reset/
+Traceback (most recent call last):
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\core\handlers\base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\2mbet\Desktop\sistema-distribuidora\venv\Lib\site-packages\django\template\loader.py", line 47, in select_template
+    raise TemplateDoesNotExist(", ".join(template_name_list), chain=chain)
+django.template.exceptions.TemplateDoesNotExist: accounts/password_reset.html
+ERROR 2026-01-26 12:09:34,921 basehttp 7292 13580 "GET /accounts/password_reset/ HTTP/1.1" 500 101345
+INFO 2026-01-26 12:09:36,251 basehttp 7292 13580 "GET /accounts/login/ HTTP/1.1" 200 18851
+INFO 2026-01-26 12:09:48,283 basehttp 7292 13156 "GET /cart/summary/ HTTP/1.1" 200 67
+INFO 2026-01-26 12:09:49,240 basehttp 7292 13156 "GET /__debug__/history_sidebar/?store_id=93214b3f2e784a759cabf7c7be3b859f HTTP/1.1" 200 9389

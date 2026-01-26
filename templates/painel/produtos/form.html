@@ -1,0 +1,31 @@
+{% extends "painel/base_painel.html" %}
+{% load crispy_forms_tags %}
+
+{% block painel_content %}
+<h2>{% if action == 'create' %}Novo Produto{% else %}Editar Produto{% endif %}</h2>
+
+<form method="post" enctype="multipart/form-data" class="mt-3">
+  {% csrf_token %}
+  {{ form|crispy }}
+
+  <hr>
+  <h4>Imagens</h4>
+  {{ images_formset.management_form }}
+  <div class="row g-3">
+    {% for f in images_formset %}
+      <div class="col-md-6">
+        <div class="card mb-3">
+          <div class="card-body">
+            {{ f|crispy }}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="mt-3 d-flex gap-2">
+    <button type="submit" class="btn btn-primary">Salvar</button>
+    <a href="{% url 'painel:produtos_list' %}" class="btn btn-secondary">Cancelar</a>
+  </div>
+</form>
+{% endblock %}

@@ -39,6 +39,13 @@
                             <i class="bi bi-tags"></i> Categorias
                         </a>
                     </li>
+                    {% if request.user.is_staff %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'painel:home' %}">
+                            <i class="bi bi-speedometer2"></i> Painel
+                        </a>
+                    </li>
+                    {% endif %}
                 </ul>
                 
                 <ul class="navbar-nav">

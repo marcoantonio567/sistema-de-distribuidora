@@ -31,7 +31,7 @@ class Category(models.Model):
         return self.name
     
     def get_absolute_url(self):
-        return reverse('products:category_detail', kwargs={'slug': self.slug})
+        return reverse('products:category_products', kwargs={'category_slug': self.slug})
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -100,11 +100,25 @@ class Product(models.Model):
     stock_quantity = models.PositiveIntegerField('Quantidade em Estoque', default=0)
     sku = models.CharField('SKU', max_length=50, unique=True, blank=True)
     
+    class UnitOfMeasure(models.TextChoices):
+        ML = 'ML', 'Mililitro (ml)'
+        L = 'L', 'Litro (L)'
+        KG = 'KG', 'Quilograma (kg)'
+        G = 'G', 'Grama (g)'
+    
     # Physical attributes
     weight = models.DecimalField('Peso (kg)', max_digits=8, decimal_places=2, null=True, blank=True)
     length = models.DecimalField('Comprimento (cm)', max_digits=8, decimal_places=2, null=True, blank=True)
     width = models.DecimalField('Largura (cm)', max_digits=8, decimal_places=2, null=True, blank=True)
     height = models.DecimalField('Altura (cm)', max_digits=8, decimal_places=2, null=True, blank=True)
+    
+    unit = models.CharField(
+        'Unidade de Medida',
+        max_length=5,
+        choices=UnitOfMeasure.choices,
+        null=True,
+        blank=True
+    )
     
     # Status and visibility
     is_active = models.BooleanField('Ativo', default=True)
@@ -132,9 +146,17 @@ class Product(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.name)
+        
+        # Save first to get an ID if creating a new object
+        if not self.id:
+            super().save(*args, **kwargs)
+            
         if not self.sku:
             self.sku = f"PROD-{self.id:06d}"
-        super().save(*args, **kwargs)
+            # Save again to update SKU
+            super().save(update_fields=['sku'])
+        else:
+            super().save(*args, **kwargs)
     
     @property
     def is_in_stock(self):
