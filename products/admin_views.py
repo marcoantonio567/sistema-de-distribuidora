@@ -51,7 +51,7 @@ class SalesDashboardView(StaffRequiredMixin, TemplateView):
             .annotate(total=Sum('total_amount'), count=Count('id'))
             .order_by('day')
         )
-        recent_orders = orders_qs.select_related('user').order_by('-created_at')[:10]
+        recent_orders = orders_qs.filter(created_at__date=today).select_related('user').annotate(total_items=Sum('items__quantity')).order_by('-created_at')
         ctx.update({
             'top_products': top_products,
             'top_customers': top_customers,
