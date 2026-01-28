@@ -28,7 +28,7 @@
             <td>{{ order.order_number }}</td>
             <td>
               <span id="status-badge-{{ order.order_number }}" class="badge 
-                {% if order.status == 'pending' %}bg-warning text-dark{% elif order.status == 'confirmed' %}bg-info text-dark{% elif order.status == 'processing' %}bg-primary{% elif order.status == 'shipped' %}bg-secondary{% elif order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% endif %}">
+                {% if order.status == 'processing' %}bg-primary{% elif order.status == 'out_for_delivery' %}bg-warning text-dark{% elif order.status == 'completed' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% endif %}">
                 {{ order.status_display }}
               </span>
             </td>
@@ -37,9 +37,6 @@
             <td class="text-end">
               <a href="{{ order.get_absolute_url }}" class="btn btn-sm btn-outline-primary me-1">
                 <i class="bi bi-eye"></i> Detalhes
-              </a>
-              <a href="{% url 'orders:order_tracking' order_number=order.order_number %}" class="btn btn-sm btn-outline-secondary me-1">
-                <i class="bi bi-truck"></i> Rastrear
               </a>
               {% if order.can_be_cancelled %}
               <button 

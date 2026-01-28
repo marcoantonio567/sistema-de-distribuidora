@@ -60,7 +60,7 @@ class OrderAdmin(admin.ModelAdmin):
         }),
     )
     
-    actions = ['mark_as_confirmed', 'mark_as_processing', 'mark_as_shipped', 'mark_as_delivered']
+    actions = ['mark_as_processing', 'mark_as_out_for_delivery', 'mark_as_completed']
     
     def total_amount_display(self, obj):
         return f"R$ {obj.total_amount:.2f}"
@@ -68,11 +68,9 @@ class OrderAdmin(admin.ModelAdmin):
     
     def status_badge(self, obj):
         status_colors = {
-            'pending': 'warning',
-            'confirmed': 'info',
             'processing': 'primary',
-            'shipped': 'secondary',
-            'delivered': 'success',
+            'out_for_delivery': 'warning',
+            'completed': 'success',
             'cancelled': 'danger'
         }
         color = status_colors.get(obj.status, 'secondary')
@@ -87,33 +85,32 @@ class OrderAdmin(admin.ModelAdmin):
         return obj.get_total_items()
     get_total_items.short_description = 'Total de Itens'
     
-    def mark_as_confirmed(self, request, queryset):
-        for order in queryset:
-            if order.status == 'pending':
-                order.update_status('confirmed', 'Status alterado pelo administrador')
-        self.message_user(request, f'{queryset.count()} pedido(s) marcado(s) como confirmado(s).')
-    mark_as_confirmed.short_description = 'Marcar como Confirmado'
-    
     def mark_as_processing(self, request, queryset):
+        updated = 0
         for order in queryset:
-            if order.status in ['pending', 'confirmed']:
+            if order.status != 'processing':
                 order.update_status('processing', 'Status alterado pelo administrador')
-        self.message_user(request, f'{queryset.count()} pedido(s) marcado(s) como em processamento.')
+                updated += 1
+        self.message_user(request, f'{updated} pedido(s) marcado(s) como Em Processamento.')
     mark_as_processing.short_description = 'Marcar como Em Processamento'
     
-    def mark_as_shipped(self, request, queryset):
+    def mark_as_out_for_delivery(self, request, queryset):
+        updated = 0
         for order in queryset:
             if order.status == 'processing':
-                order.update_status('shipped', 'Status alterado pelo administrador')
-        self.message_user(request, f'{queryset.count()} pedido(s) marcado(s) como enviado(s).')
-    mark_as_shipped.short_description = 'Marcar como Enviado'
+                order.update_status('out_for_delivery', 'Status alterado pelo administrador')
+                updated += 1
+        self.message_user(request, f'{updated} pedido(s) marcado(s) como Em Rota de Entrega.')
+    mark_as_out_for_delivery.short_description = 'Marcar como Em Rota de Entrega'
     
-    def mark_as_delivered(self, request, queryset):
+    def mark_as_completed(self, request, queryset):
+        updated = 0
         for order in queryset:
-            if order.status == 'shipped':
-                order.update_status('delivered', 'Status alterado pelo administrador')
-        self.message_user(request, f'{queryset.count()} pedido(s) marcado(s) como entregue(s).')
-    mark_as_delivered.short_description = 'Marcar como Entregue'
+            if order.status == 'out_for_delivery':
+                order.update_status('completed', 'Status alterado pelo administrador')
+                updated += 1
+        self.message_user(request, f'{updated} pedido(s) marcado(s) como Concluído.')
+    mark_as_completed.short_description = 'Marcar como Concluído'
 
 
 @admin.register(ShippingAddress)

@@ -10,11 +10,9 @@ import uuid
 class Order(models.Model):
     """Order model"""
     STATUS_CHOICES = [
-        ('pending', 'Pendente'),
-        ('confirmed', 'Confirmado'),
         ('processing', 'Em Processamento'),
-        ('shipped', 'Enviado'),
-        ('delivered', 'Entregue'),
+        ('out_for_delivery', 'Em Rota de Entrega'),
+        ('completed', 'Concluído'),
         ('cancelled', 'Cancelado'),
     ]
     
@@ -37,7 +35,7 @@ class Order(models.Model):
     customer_phone = models.CharField('Telefone do Cliente', max_length=20)
     
     # Order status
-    status = models.CharField('Status', max_length=20, choices=STATUS_CHOICES, default='pending')
+    status = models.CharField('Status', max_length=20, choices=STATUS_CHOICES, default='processing')
     
     # Amounts
     subtotal = models.DecimalField('Subtotal', max_digits=10, decimal_places=2, default=0)
@@ -96,11 +94,11 @@ class Order(models.Model):
     
     def can_be_cancelled(self):
         """Check if order can be cancelled"""
-        return self.status in ['pending', 'confirmed']
+        return self.status == 'processing'
     
     def can_be_modified(self):
         """Check if order can be modified"""
-        return self.status in ['pending', 'confirmed']
+        return self.status == 'processing'
     
     def get_total_items(self):
         """Get total number of items in order"""

@@ -265,33 +265,3 @@ class CancelOrderView(View):
                 'success': False,
                 'error': 'Erro ao cancelar pedido.'
             })
-
-
-def order_tracking(request, order_number):
-    """Order tracking page"""
-    try:
-        order = get_object_or_404(
-            Order.objects.select_related('shipping_address').prefetch_related('items__product', 'status_history'),
-            order_number=order_number
-        )
-        
-        # Check if user has permission to view order
-        if request.user.is_authenticated:
-            if order.user != request.user:
-                messages.error(request, 'Você não tem permissão para visualizar este pedido.')
-                return redirect('home')
-        else:
-            if order.session_key != request.session.session_key:
-                messages.error(request, 'Você não tem permissão para visualizar este pedido.')
-                return redirect('home')
-        
-        context = {
-            'order': order,
-            'status_history': order.status_history.all()
-        }
-        
-        return render(request, 'orders/order_tracking.html', context)
-        
-    except Order.DoesNotExist:
-        messages.error(request, 'Pedido não encontrado.')
-        return redirect('home')
