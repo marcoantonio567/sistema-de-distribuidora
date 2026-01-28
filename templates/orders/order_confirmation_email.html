@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirmação de Pedido {{ order.order_number }}</title>
+  <style>
+    body { font-family: Arial, sans-serif; color: #333; }
+    .container { max-width: 640px; margin: 0 auto; padding: 16px; }
+    .header { text-align: center; }
+    .summary { margin: 16px 0; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 8px; border-bottom: 1px solid #eee; text-align: left; }
+    .total { font-weight: bold; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h2>Confirmação de Pedido</h2>
+      <p>Número do pedido: <strong>{{ order.order_number }}</strong></p>
+    </div>
+    <p>Olá {{ order.customer_name }},</p>
+    <p>Recebemos seu pedido e começaremos a processá-lo. Abaixo estão os detalhes:</p>
+    <div class="summary">
+      <table>
+        <thead>
+          <tr>
+            <th>Produto</th>
+            <th style="text-align:right;">Preço</th>
+            <th style="text-align:center;">Qtd</th>
+            <th style="text-align:right;">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for item in order.items.all %}
+          <tr>
+            <td>{{ item.product.name }}</td>
+            <td style="text-align:right;">R$ {{ item.price|floatformat:2 }}</td>
+            <td style="text-align:center;">{{ item.quantity }}</td>
+            <td style="text-align:right;">R$ {{ item.subtotal|floatformat:2 }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="3" class="total">Subtotal</td>
+            <td style="text-align:right;">R$ {{ order.subtotal|floatformat:2 }}</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="total">Frete</td>
+            <td style="text-align:right;">R$ {{ order.shipping_cost|floatformat:2 }}</td>
+          </tr>
+          <tr>
+            <td colspan="3" class="total">Total</td>
+            <td style="text-align:right;">R$ {{ order.total_amount|floatformat:2 }}</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    {% if order.shipping_address %}
+      <p><strong>Entrega:</strong> {{ order.shipping_address.full_address }}</p>
+    {% endif %}
+    <p>Você pode acompanhar o status do seu pedido acessando a página Meus Pedidos.</p>
+    <p>Obrigado por comprar conosco!</p>
+  </div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Rastrear Pedido {{ order.order_number }}{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-header bg-light d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><i class="bi bi-truck"></i> Rastrear Pedido {{ order.order_number }}</h5>
+    <a href="{{ order.get_absolute_url }}" class="btn btn-sm btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i> Voltar ao pedido
+    </a>
+  </div>
+  <div class="card-body">
+    <div class="mb-3">
+      <span class="badge 
+        {% if order.status == 'pending' %}bg-warning text-dark{% elif order.status == 'confirmed' %}bg-info text-dark{% elif order.status == 'processing' %}bg-primary{% elif order.status == 'shipped' %}bg-secondary{% elif order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% endif %}">
+        Status atual: {{ order.status_display }}
+      </span>
+    </div>
+    {% if status_history %}
+      <ul class="list-group">
+        {% for h in status_history %}
+          <li class="list-group-item d-flex justify-content-between align-items-start">
+            <div class="ms-2 me-auto">
+              <div class="fw-bold">{{ h.old_status|title }} → {{ h.new_status|title }}</div>
+              {% if h.notes %}<small class="text-muted">{{ h.notes }}</small>{% endif %}
+            </div>
+            <span class="text-muted">{{ h.created_at|date:"d/m/Y H:i" }}</span>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="text-muted mb-0">Ainda não há histórico de status para este pedido.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}

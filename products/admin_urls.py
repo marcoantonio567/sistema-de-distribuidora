@@ -5,6 +5,7 @@ app_name = 'painel'
 
 urlpatterns = [
     path('', admin_views.PainelHomeView.as_view(), name='home'),
+    path('relatorios/', admin_views.SalesDashboardView.as_view(), name='relatorios_dashboard'),
     path('produtos/', admin_views.ProductAdminListView.as_view(), name='produtos_list'),
     path('produtos/novo/', admin_views.ProductAdminCreateView.as_view(), name='produtos_create'),
     path('produtos/<int:pk>/editar/', admin_views.ProductAdminUpdateView.as_view(), name='produtos_update'),

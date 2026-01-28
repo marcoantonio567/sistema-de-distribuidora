@@ -2,10 +2,12 @@ from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, View
 from django.shortcuts import redirect
-from django.db.models import Q
-from django.http import HttpResponseForbidden
+from django.db.models import Q, Sum, Count, F
+from django.db.models.functions import TruncDate
+from django.utils import timezone
 from .models import Product, Category, Brand
 from .forms import ProductForm, ProductImageInlineFormSet
+from orders.models import Order, OrderItem
 
 
 class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
@@ -18,6 +20,48 @@ class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 class PainelHomeView(StaffRequiredMixin, TemplateView):
     template_name = 'painel/base_painel.html'
 
+class SalesDashboardView(StaffRequiredMixin, TemplateView):
+    template_name = 'painel/relatorios/dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        ctx = super().get_context_data(**kwargs)
+        valid_status = ['confirmed', 'processing', 'shipped', 'delivered']
+        orders_qs = Order.objects.filter(status__in=valid_status)
+        top_products = (
+            OrderItem.objects.filter(order__status__in=valid_status)
+            .values('product_id', 'product__name')
+            .annotate(total_qty=Sum('quantity'), total_revenue=Sum(F('subtotal')))
+            .order_by('-total_qty')[:10]
+        )
+        top_customers = (
+            orders_qs.filter(user__isnull=False)
+            .values('user_id', 'user__username')
+            .annotate(order_count=Count('id'), total_spent=Sum('total_amount'))
+            .order_by('-order_count')[:10]
+        )
+        total_revenue = orders_qs.aggregate(total=Sum('total_amount'))['total'] or 0
+        total_orders = orders_qs.count()
+        avg_ticket = (total_revenue / total_orders) if total_orders else 0
+        today = timezone.now().date()
+        since = today - timezone.timedelta(days=30)
+        revenue_by_day = (
+            orders_qs.filter(created_at__date__gte=since)
+            .annotate(day=TruncDate('created_at'))
+            .values('day')
+            .annotate(total=Sum('total_amount'), count=Count('id'))
+            .order_by('day')
+        )
+        recent_orders = orders_qs.select_related('user').order_by('-created_at')[:10]
+        ctx.update({
+            'top_products': top_products,
+            'top_customers': top_customers,
+            'total_revenue': total_revenue,
+            'total_orders': total_orders,
+            'avg_ticket': avg_ticket,
+            'revenue_by_day': list(revenue_by_day),
+            'recent_orders': recent_orders,
+        })
+        return ctx
 
 class ProductAdminListView(StaffRequiredMixin, ListView):
     model = Product

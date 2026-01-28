@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Pedido Realizado{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-body text-center py-5">
+    <div class="mb-3">
+      <i class="bi bi-check-circle-fill text-success" style="font-size: 3rem;"></i>
+    </div>
+    <h4 class="mb-2">Pedido confirmado!</h4>
+    <p class="text-muted mb-4">Número do pedido: <strong>{{ order.order_number }}</strong></p>
+    <div class="d-flex justify-content-center gap-2">
+      <a href="{{ order.get_absolute_url }}" class="btn btn-primary">
+        <i class="bi bi-eye"></i> Ver detalhes
+      </a>
+      <a href="{% url 'orders:order_list' %}" class="btn btn-outline-secondary">
+        <i class="bi bi-box"></i> Meus Pedidos
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}

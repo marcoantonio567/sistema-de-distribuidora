@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Meus Pedidos{% endblock %}
+{% block content %}
+<div class="card shadow-sm">
+  <div class="card-header bg-light d-flex justify-content-between align-items-center">
+    <h5 class="mb-0"><i class="bi bi-box"></i> Meus Pedidos</h5>
+    <a href="{% url 'products:product_list' %}" class="btn btn-sm btn-outline-secondary">
+      <i class="bi bi-arrow-left"></i> Voltar aos produtos
+    </a>
+  </div>
+  <div class="card-body">
+    {% if orders %}
+    <div class="table-responsive">
+      <table class="table table-hover align-middle">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Status</th>
+            <th>Criado em</th>
+            <th>Total</th>
+            <th class="text-end">Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for order in orders %}
+          <tr id="order-row-{{ order.order_number }}">
+            <td>{{ order.order_number }}</td>
+            <td>
+              <span id="status-badge-{{ order.order_number }}" class="badge 
+                {% if order.status == 'pending' %}bg-warning text-dark{% elif order.status == 'confirmed' %}bg-info text-dark{% elif order.status == 'processing' %}bg-primary{% elif order.status == 'shipped' %}bg-secondary{% elif order.status == 'delivered' %}bg-success{% elif order.status == 'cancelled' %}bg-danger{% endif %}">
+                {{ order.status_display }}
+              </span>
+            </td>
+            <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+            <td>R$ {{ order.total_amount|floatformat:2 }}</td>
+            <td class="text-end">
+              <a href="{{ order.get_absolute_url }}" class="btn btn-sm btn-outline-primary me-1">
+                <i class="bi bi-eye"></i> Detalhes
+              </a>
+              <a href="{% url 'orders:order_tracking' order_number=order.order_number %}" class="btn btn-sm btn-outline-secondary me-1">
+                <i class="bi bi-truck"></i> Rastrear
+              </a>
+              {% if order.can_be_cancelled %}
+              <button 
+                class="btn btn-sm btn-outline-danger cancel-order-btn" 
+                data-order-number="{{ order.order_number }}">
+                <i class="bi bi-x-circle"></i> Cancelar
+              </button>
+              {% endif %}
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+      <p class="text-muted mb-0">Você não possui pedidos.</p>
+    {% endif %}
+  </div>
+</div>
+{% endblock %}
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('.cancel-order-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var orderNumber = btn.getAttribute('data-order-number');
+      btn.disabled = true;
+      btn.classList.add('disabled');
+      fetch(`{% url 'orders:cancel_order' order_number='ORDER_NUMBER_PLACEHOLDER' %}`.replace('ORDER_NUMBER_PLACEHOLDER', orderNumber), {
+        method: 'POST'
+      }).then(function(resp) { return resp.json(); })
+        .then(function(data) {
+          if (data.success) {
+            var badge = document.getElementById('status-badge-' + orderNumber);
+            if (badge) {
+              badge.textContent = data.new_status || 'Cancelado';
+              badge.className = 'badge bg-danger';
+            }
+          } else {
+            alert(data.error || 'Não foi possível cancelar o pedido.');
+            btn.disabled = false;
+            btn.classList.remove('disabled');
+          }
+        }).catch(function() {
+          alert('Erro ao cancelar o pedido.');
+          btn.disabled = false;
+          btn.classList.remove('disabled');
+        });
+    });
+  });
+});
+</script>
+{% endblock %}
