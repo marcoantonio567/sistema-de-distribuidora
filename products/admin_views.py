@@ -8,6 +8,7 @@ from django.utils import timezone
 from .models import Product, Category, Brand
 from .forms import ProductForm, ProductImageInlineFormSet
 from orders.models import Order, OrderItem
+import json
 
 
 class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
@@ -52,6 +53,20 @@ class SalesDashboardView(StaffRequiredMixin, TemplateView):
             .order_by('day')
         )
         recent_orders = orders_qs.filter(created_at__date=today).select_related('user').annotate(total_items=Sum('items__quantity')).order_by('-created_at')
+        
+        # Prepare data for charts
+        revenue_data_list = list(revenue_by_day)
+        revenue_labels = [d['day'].strftime('%d/%m') for d in revenue_data_list]
+        revenue_values = [float(d['total']) for d in revenue_data_list]
+        
+        prod_data = list(top_products)
+        prod_labels = [p['product__name'] for p in prod_data]
+        prod_values = [p['total_qty'] for p in prod_data]
+        
+        cust_data = list(top_customers)
+        cust_labels = [c['user__username'] for c in cust_data]
+        cust_values = [float(c['total_spent']) for c in cust_data]
+
         ctx.update({
             'top_products': top_products,
             'top_customers': top_customers,
@@ -60,6 +75,13 @@ class SalesDashboardView(StaffRequiredMixin, TemplateView):
             'avg_ticket': avg_ticket,
             'revenue_by_day': list(revenue_by_day),
             'recent_orders': recent_orders,
+            # JSON for charts
+            'chart_revenue_labels': json.dumps(revenue_labels),
+            'chart_revenue_values': json.dumps(revenue_values),
+            'chart_prod_labels': json.dumps(prod_labels),
+            'chart_prod_values': json.dumps(prod_values),
+            'chart_cust_labels': json.dumps(cust_labels),
+            'chart_cust_values': json.dumps(cust_values),
         })
         return ctx
 

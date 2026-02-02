@@ -32,54 +32,60 @@
   <div class="col-lg-6">
     <div class="card">
       <div class="card-header">Produtos mais vendidos</div>
-      <div class="card-body p-0">
-        <table class="table mb-0">
-          <thead>
-            <tr>
-              <th>Produto</th>
-              <th class="text-end">Qtd</th>
-              <th class="text-end">Receita</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for p in top_products %}
-            <tr>
-              <td>{{ p.product__name }}</td>
-              <td class="text-end">{{ p.total_qty }}</td>
-              <td class="text-end">R$ {{ p.total_revenue|floatformat:2 }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="3" class="text-center text-muted">Sem dados</td></tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="card-body">
+        <canvas id="productsChart" style="max-height: 300px;"></canvas>
+        <div class="table-responsive mt-3">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th class="text-end">Qtd</th>
+                <th class="text-end">Receita</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for p in top_products %}
+              <tr>
+                <td>{{ p.product__name }}</td>
+                <td class="text-end">{{ p.total_qty }}</td>
+                <td class="text-end">R$ {{ p.total_revenue|floatformat:2 }}</td>
+              </tr>
+              {% empty %}
+              <tr><td colspan="3" class="text-center text-muted">Sem dados</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
   <div class="col-lg-6">
     <div class="card">
       <div class="card-header">Clientes mais frequentes</div>
-      <div class="card-body p-0">
-        <table class="table mb-0">
-          <thead>
-            <tr>
-              <th>Cliente</th>
-              <th class="text-end">Pedidos</th>
-              <th class="text-end">Gasto</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for c in top_customers %}
-            <tr>
-              <td>{{ c.user__username }}</td>
-              <td class="text-end">{{ c.order_count }}</td>
-              <td class="text-end">R$ {{ c.total_spent|floatformat:2 }}</td>
-            </tr>
-            {% empty %}
-            <tr><td colspan="3" class="text-center text-muted">Sem dados</td></tr>
-            {% endfor %}
-          </tbody>
-        </table>
+      <div class="card-body">
+        <canvas id="customersChart" style="max-height: 300px;"></canvas>
+        <div class="table-responsive mt-3">
+          <table class="table mb-0">
+            <thead>
+              <tr>
+                <th>Cliente</th>
+                <th class="text-end">Pedidos</th>
+                <th class="text-end">Gasto</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for c in top_customers %}
+              <tr>
+                <td>{{ c.user__username }}</td>
+                <td class="text-end">{{ c.order_count }}</td>
+                <td class="text-end">R$ {{ c.total_spent|floatformat:2 }}</td>
+              </tr>
+              {% empty %}
+              <tr><td colspan="3" class="text-center text-muted">Sem dados</td></tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
@@ -90,7 +96,8 @@
     <div class="card">
       <div class="card-header">Receita por dia (30 dias)</div>
       <div class="card-body">
-        <div class="table-responsive">
+        <canvas id="revenueChart" style="max-height: 300px;"></canvas>
+        <div class="table-responsive mt-3">
           <table class="table mb-0">
             <thead>
               <tr>
@@ -143,4 +150,94 @@
     </div>
   </div>
 </div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Parse data safely
+    const revenueLabels = JSON.parse('{{ chart_revenue_labels|escapejs }}');
+    const revenueValues = JSON.parse('{{ chart_revenue_values|escapejs }}');
+    const prodLabels = JSON.parse('{{ chart_prod_labels|escapejs }}');
+    const prodValues = JSON.parse('{{ chart_prod_values|escapejs }}');
+    const custLabels = JSON.parse('{{ chart_cust_labels|escapejs }}');
+    const custValues = JSON.parse('{{ chart_cust_values|escapejs }}');
+
+    // Revenue Chart
+    if (document.getElementById('revenueChart')) {
+      new Chart(document.getElementById('revenueChart'), {
+        type: 'line',
+        data: {
+          labels: revenueLabels,
+          datasets: [{
+            label: 'Receita (R$)',
+            data: revenueValues,
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.1)',
+            tension: 0.1,
+            fill: true
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    // Products Chart
+    if (document.getElementById('productsChart')) {
+      new Chart(document.getElementById('productsChart'), {
+        type: 'bar',
+        data: {
+          labels: prodLabels,
+          datasets: [{
+            label: 'Qtd Vendida',
+            data: prodValues,
+            backgroundColor: 'rgba(54, 162, 235, 0.5)',
+            borderColor: 'rgb(54, 162, 235)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: {
+            x: { beginAtZero: true }
+          }
+        }
+      });
+    }
+
+    // Customers Chart
+    if (document.getElementById('customersChart')) {
+      new Chart(document.getElementById('customersChart'), {
+        type: 'bar',
+        data: {
+          labels: custLabels,
+          datasets: [{
+            label: 'Total Gasto (R$)',
+            data: custValues,
+            backgroundColor: 'rgba(255, 99, 132, 0.5)',
+            borderColor: 'rgb(255, 99, 132)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          indexAxis: 'y',
+          scales: {
+            x: { beginAtZero: true }
+          }
+        }
+      });
+    }
+  });
+</script>
 {% endblock %}
