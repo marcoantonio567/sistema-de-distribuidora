@@ -20,4 +20,9 @@ urlpatterns = [
     path('cupons/<int:pk>/editar/', admin_views.CouponAdminUpdateView.as_view(), name='cupons_update'),
     path('cupons/<int:pk>/excluir/', admin_views.CouponAdminDeleteView.as_view(), name='cupons_delete'),
     path('cupons/<int:pk>/ativar/', admin_views.CouponToggleActiveView.as_view(), name='cupons_toggle_active'),
+    
+    # Pedidos
+    path('pedidos/', admin_views.OrderAdminListView.as_view(), name='orders_list'),
+    path('pedidos/<slug:order_number>/', admin_views.OrderAdminDetailView.as_view(), name='orders_detail'),
+    path('pedidos/<slug:order_number>/status/', admin_views.OrderUpdateStatusView.as_view(), name='orders_update_status'),
 ]

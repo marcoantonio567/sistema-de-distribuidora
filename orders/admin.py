@@ -71,7 +71,7 @@ class OrderAdmin(admin.ModelAdmin):
             'processing': 'primary',
             'out_for_delivery': 'warning',
             'completed': 'success',
-            'cancelled': 'danger'
+            'cancelled': 'danger',
         }
         color = status_colors.get(obj.status, 'secondary')
         return format_html(

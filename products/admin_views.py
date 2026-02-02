@@ -1,13 +1,13 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
-from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, View
+from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, View, DetailView
 from django.shortcuts import redirect, get_object_or_404
 from django.db.models import Q, Sum, Count, F
 from django.db.models.functions import TruncDate
 from django.utils import timezone
 from .models import Product, Category, Brand
 from .forms import ProductForm, ProductImageInlineFormSet
-from orders.models import Order, OrderItem, Coupon
+from orders.models import Order, OrderItem, Coupon, OrderStatusHistory
 from orders.forms import CouponForm
 import json
 
@@ -27,7 +27,7 @@ class SalesDashboardView(StaffRequiredMixin, TemplateView):
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        valid_status = ['confirmed', 'processing', 'shipped', 'delivered']
+        valid_status = ['processing', 'out_for_delivery', 'completed']
         orders_qs = Order.objects.filter(status__in=valid_status)
         top_products = (
             OrderItem.objects.filter(order__status__in=valid_status)
@@ -241,3 +241,63 @@ class CouponToggleActiveView(StaffRequiredMixin, View):
         coupon.active = not coupon.active
         coupon.save()
         return redirect('painel:cupons_list')
+
+# Order Management Views
+
+class OrderAdminListView(StaffRequiredMixin, ListView):
+    model = Order
+    template_name = 'painel/orders/list.html'
+    context_object_name = 'orders'
+    paginate_by = 20
+    ordering = ['-created_at']
+
+    def get_queryset(self):
+        qs = super().get_queryset().select_related('user')
+        q = self.request.GET.get('q')
+        status = self.request.GET.get('status')
+        
+        if q:
+            qs = qs.filter(
+                Q(order_number__icontains=q) |
+                Q(customer_name__icontains=q) |
+                Q(customer_email__icontains=q)
+            )
+        
+        if status:
+            qs = qs.filter(status=status)
+            
+        return qs
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['status_choices'] = Order.STATUS_CHOICES
+        context['q'] = self.request.GET.get('q', '')
+        context['f_status'] = self.request.GET.get('status', '')
+        return context
+
+class OrderAdminDetailView(StaffRequiredMixin, DetailView):
+    model = Order
+    template_name = 'painel/orders/detail.html'
+    context_object_name = 'order'
+    slug_field = 'order_number'
+    slug_url_kwarg = 'order_number'
+
+    def get_queryset(self):
+        return super().get_queryset().prefetch_related('items__product', 'status_history', 'shipping_address')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['status_choices'] = Order.STATUS_CHOICES
+        return context
+
+class OrderUpdateStatusView(StaffRequiredMixin, View):
+    def post(self, request, order_number):
+        order = get_object_or_404(Order, order_number=order_number)
+        new_status = request.POST.get('status')
+        notes = request.POST.get('notes', '')
+        
+        if new_status and new_status != order.status:
+            order.update_status(new_status, notes)
+            
+        return redirect('painel:orders_detail', order_number=order.order_number)
+

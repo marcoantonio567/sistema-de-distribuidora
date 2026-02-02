@@ -1,0 +1,144 @@
+{% extends "painel/base_painel.html" %}
+{% load static %}
+
+{% block painel_content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Pedido #{{ order.order_number }}</h2>
+  <a href="{% url 'painel:orders_list' %}" class="btn btn-secondary">Voltar</a>
+</div>
+
+<div class="row">
+  <div class="col-md-8">
+    <!-- Order Items -->
+    <div class="card mb-4">
+      <div class="card-header">Itens do Pedido</div>
+      <div class="card-body">
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Produto</th>
+                <th>Qtd</th>
+                <th>Preço Unit.</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              {% for item in order.items.all %}
+              <tr>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.quantity }}</td>
+                <td>R$ {{ item.price|floatformat:2 }}</td>
+                <td>R$ {{ item.subtotal|floatformat:2 }}</td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="3" class="text-end"><strong>Subtotal:</strong></td>
+                <td>R$ {{ order.subtotal|floatformat:2 }}</td>
+              </tr>
+              <tr>
+                <td colspan="3" class="text-end"><strong>Frete:</strong></td>
+                <td>R$ {{ order.shipping_cost|floatformat:2 }}</td>
+              </tr>
+              {% if order.discount_amount > 0 %}
+              <tr>
+                <td colspan="3" class="text-end text-success"><strong>Desconto:</strong></td>
+                <td class="text-success">- R$ {{ order.discount_amount|floatformat:2 }}</td>
+              </tr>
+              {% endif %}
+              <tr>
+                <td colspan="3" class="text-end"><strong>Total:</strong></td>
+                <td><strong>R$ {{ order.total_amount|floatformat:2 }}</strong></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status History -->
+    <div class="card mb-4">
+      <div class="card-header">Histórico de Status</div>
+      <div class="card-body">
+        <ul class="list-group list-group-flush">
+          {% for history in order.status_history.all %}
+          <li class="list-group-item">
+            <div class="d-flex w-100 justify-content-between">
+              <h6 class="mb-1">
+                {{ history.get_old_status_display }} &rarr; {{ history.get_new_status_display }}
+              </h6>
+              <small class="text-muted">{{ history.created_at|date:"d/m/Y H:i" }}</small>
+            </div>
+            {% if history.notes %}
+            <p class="mb-1 text-muted"><small>{{ history.notes }}</small></p>
+            {% endif %}
+          </li>
+          {% empty %}
+          <li class="list-group-item">Nenhum histórico disponível.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <!-- Update Status -->
+    <div class="card mb-4 border-primary">
+      <div class="card-header bg-primary text-white">Atualizar Status</div>
+      <div class="card-body">
+        <form method="post" action="{% url 'painel:orders_update_status' order.order_number %}">
+          {% csrf_token %}
+          <div class="mb-3">
+            <label for="status" class="form-label">Novo Status</label>
+            <select name="status" id="status" class="form-select">
+              {% for status_code, status_label in status_choices %}
+                <option value="{{ status_code }}" {% if order.status == status_code %}selected{% endif %}>
+                  {{ status_label }}
+                </option>
+              {% endfor %}
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="notes" class="form-label">Observações (opcional)</label>
+            <textarea name="notes" id="notes" class="form-control" rows="3"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Atualizar Status</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Customer Info -->
+    <div class="card mb-4">
+      <div class="card-header">Dados do Cliente</div>
+      <div class="card-body">
+        <p class="mb-1"><strong>Nome:</strong> {{ order.customer_name }}</p>
+        <p class="mb-1"><strong>Email:</strong> {{ order.customer_email }}</p>
+        <p class="mb-1"><strong>Telefone:</strong> {{ order.customer_phone }}</p>
+        <hr>
+        <h6>Endereço de Entrega</h6>
+        {% with addr=order.shipping_address %}
+        <p class="mb-1">{{ addr.street }}, {{ addr.number }}</p>
+        {% if addr.complement %}<p class="mb-1">{{ addr.complement }}</p>{% endif %}
+        <p class="mb-1">{{ addr.neighborhood }} - {{ addr.city }}/{{ addr.state }}</p>
+        <p class="mb-0">CEP: {{ addr.zip_code }}</p>
+        {% if addr.reference %}<p class="mb-0 text-muted"><small>Ref: {{ addr.reference }}</small></p>{% endif %}
+        {% endwith %}
+      </div>
+    </div>
+
+    <!-- Payment Info -->
+    <div class="card mb-4">
+      <div class="card-header">Pagamento</div>
+      <div class="card-body">
+        <p class="mb-1"><strong>Método:</strong> {{ order.get_payment_method_display }}</p>
+        <p class="mb-1"><strong>Status Atual:</strong> {{ order.get_status_display }}</p>
+        {% if order.coupon %}
+        <p class="mb-0"><strong>Cupom:</strong> {{ order.coupon.code }} ({{ order.coupon.discount_percent }}%)</p>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
