@@ -1,0 +1,79 @@
+{% extends "painel/base_painel.html" %}
+{% load static %}
+
+{% block painel_content %}
+<div class="d-flex justify-content-between align-items-center mb-3">
+  <h2>Cupons de Desconto</h2>
+  <a href="{% url 'painel:cupons_create' %}" class="btn btn-primary">Novo Cupom</a>
+</div>
+
+<form method="get" class="row g-3 mb-3">
+  <div class="col-md-6">
+    <input type="text" name="q" value="{{ request.GET.q|default:'' }}" class="form-control" placeholder="Buscar por código do cupom">
+  </div>
+  <div class="col-md-2">
+    <button class="btn btn-secondary w-100">Buscar</button>
+  </div>
+</form>
+
+<div class="table-responsive">
+  <table class="table table-striped align-middle">
+    <thead>
+      <tr>
+        <th>Código</th>
+        <th>Desconto (%)</th>
+        <th>Válido De</th>
+        <th>Válido Até</th>
+        <th>Ativo</th>
+        <th>Status</th>
+        <th>Ações</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for coupon in coupons %}
+      <tr>
+        <td><strong>{{ coupon.code }}</strong></td>
+        <td>{{ coupon.discount_percent }}%</td>
+        <td>{{ coupon.valid_from|date:"d/m/Y H:i" }}</td>
+        <td>{{ coupon.valid_to|date:"d/m/Y H:i" }}</td>
+        <td>
+          <form method="post" action="{% url 'painel:cupons_toggle_active' coupon.id %}">
+            {% csrf_token %}
+            <button class="btn btn-sm {% if coupon.active %}btn-success{% else %}btn-outline-secondary{% endif %}">
+              {% if coupon.active %}Ativo{% else %}Inativo{% endif %}
+            </button>
+          </form>
+        </td>
+        <td>
+            {% if coupon.is_valid %}
+            <span class="badge bg-success">Válido</span>
+            {% else %}
+            <span class="badge bg-danger">Inválido/Expirado</span>
+            {% endif %}
+        </td>
+        <td>
+          <a href="{% url 'painel:cupons_update' coupon.id %}" class="btn btn-sm btn-outline-primary">Editar</a>
+          <a href="{% url 'painel:cupons_delete' coupon.id %}" class="btn btn-sm btn-outline-danger">Excluir</a>
+        </td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="7" class="text-center">Nenhum cupom encontrado.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if is_paginated %}
+<nav>
+  <ul class="pagination justify-content-center">
+    {% if page_obj.has_previous %}
+    <li class="page-item"><a class="page-link" href="?page={{ page_obj.previous_page_number }}&q={{ request.GET.q }}">Anterior</a></li>
+    {% endif %}
+    <li class="page-item disabled"><span class="page-link">Página {{ page_obj.number }} de {{ page_obj.paginator.num_pages }}</span></li>
+    {% if page_obj.has_next %}
+    <li class="page-item"><a class="page-link" href="?page={{ page_obj.next_page_number }}&q={{ request.GET.q }}">Próxima</a></li>
+    {% endif %}
+  </ul>
+</nav>
+{% endif %}
+{% endblock %}

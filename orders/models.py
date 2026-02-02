@@ -7,6 +7,26 @@ from cart.models import Cart
 import uuid
 
 
+class Coupon(models.Model):
+    code = models.CharField('Código', max_length=50, unique=True)
+    discount_percent = models.IntegerField('Desconto (%)', help_text='Porcentagem de desconto (0-100)')
+    valid_from = models.DateTimeField('Válido de')
+    valid_to = models.DateTimeField('Válido até')
+    active = models.BooleanField('Ativo', default=True)
+
+    class Meta:
+        verbose_name = 'Cupom'
+        verbose_name_plural = 'Cupons'
+
+    def __str__(self):
+        return self.code
+
+    @property
+    def is_valid(self):
+        now = timezone.now()
+        return self.active and self.valid_from <= now <= self.valid_to
+
+
 class Order(models.Model):
     """Order model"""
     STATUS_CHOICES = [

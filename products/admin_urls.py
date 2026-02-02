@@ -13,4 +13,11 @@ urlpatterns = [
     path('produtos/<int:pk>/ativar/', admin_views.ProductToggleActiveView.as_view(), name='produtos_toggle_active'),
     path('produtos/<int:pk>/destaque/', admin_views.ProductToggleFeaturedView.as_view(), name='produtos_toggle_featured'),
     path('produtos/<int:pk>/estoque/ajustar/', admin_views.ProductAdjustStockView.as_view(), name='produtos_adjust_stock'),
+    
+    # Cupons
+    path('cupons/', admin_views.CouponAdminListView.as_view(), name='cupons_list'),
+    path('cupons/novo/', admin_views.CouponAdminCreateView.as_view(), name='cupons_create'),
+    path('cupons/<int:pk>/editar/', admin_views.CouponAdminUpdateView.as_view(), name='cupons_update'),
+    path('cupons/<int:pk>/excluir/', admin_views.CouponAdminDeleteView.as_view(), name='cupons_delete'),
+    path('cupons/<int:pk>/ativar/', admin_views.CouponToggleActiveView.as_view(), name='cupons_toggle_active'),
 ]

@@ -1,13 +1,14 @@
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, View
-from django.shortcuts import redirect
+from django.shortcuts import redirect, get_object_or_404
 from django.db.models import Q, Sum, Count, F
 from django.db.models.functions import TruncDate
 from django.utils import timezone
 from .models import Product, Category, Brand
 from .forms import ProductForm, ProductImageInlineFormSet
-from orders.models import Order, OrderItem
+from orders.models import Order, OrderItem, Coupon
+from orders.forms import CouponForm
 import json
 
 
@@ -99,25 +100,22 @@ class ProductAdminListView(StaffRequiredMixin, ListView):
         ativo = self.request.GET.get('ativo')
 
         if q:
-            qs = qs.filter(Q(name__icontains=q) | Q(description__icontains=q) | Q(sku__icontains=q))
+            qs = qs.filter(Q(name__icontains=q) | Q(sku__icontains=q))
         if categoria:
             qs = qs.filter(category_id=categoria)
         if marca:
             qs = qs.filter(brand_id=marca)
-        if ativo in ['1', '0']:
-            qs = qs.filter(is_active=(ativo == '1'))
+        if ativo:
+            is_active = ativo == '1'
+            qs = qs.filter(is_active=is_active)
+        
         return qs
 
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
-        ctx['categorias'] = Category.objects.all()
-        ctx['marcas'] = Brand.objects.all()
-        ctx['q'] = self.request.GET.get('q', '')
-        ctx['f_categoria'] = self.request.GET.get('categoria', '')
-        ctx['f_marca'] = self.request.GET.get('marca', '')
-        ctx['f_ativo'] = self.request.GET.get('ativo', '')
+        ctx['categories'] = Category.objects.all()
+        ctx['brands'] = Brand.objects.all()
         return ctx
-
 
 class ProductAdminCreateView(StaffRequiredMixin, CreateView):
     model = Product
@@ -128,19 +126,21 @@ class ProductAdminCreateView(StaffRequiredMixin, CreateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         if self.request.POST:
-            ctx['images_formset'] = ProductImageInlineFormSet(self.request.POST, self.request.FILES)
+            ctx['inlines'] = ProductImageInlineFormSet(self.request.POST, self.request.FILES)
         else:
-            ctx['images_formset'] = ProductImageInlineFormSet()
-        ctx['action'] = 'create'
+            ctx['inlines'] = ProductImageInlineFormSet()
         return ctx
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        images_formset = ProductImageInlineFormSet(self.request.POST, self.request.FILES, instance=self.object)
-        if images_formset.is_valid():
-            images_formset.save()
-        return response
-
+        ctx = self.get_context_data()
+        inlines = ctx['inlines']
+        if inlines.is_valid():
+            self.object = form.save()
+            inlines.instance = self.object
+            inlines.save()
+            return redirect(self.success_url)
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
 
 class ProductAdminUpdateView(StaffRequiredMixin, UpdateView):
     model = Product
@@ -151,50 +151,93 @@ class ProductAdminUpdateView(StaffRequiredMixin, UpdateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data(**kwargs)
         if self.request.POST:
-            ctx['images_formset'] = ProductImageInlineFormSet(self.request.POST, self.request.FILES, instance=self.object)
+            ctx['inlines'] = ProductImageInlineFormSet(self.request.POST, self.request.FILES, instance=self.object)
         else:
-            ctx['images_formset'] = ProductImageInlineFormSet(instance=self.object)
-        ctx['action'] = 'update'
+            ctx['inlines'] = ProductImageInlineFormSet(instance=self.object)
         return ctx
 
     def form_valid(self, form):
-        response = super().form_valid(form)
-        images_formset = ProductImageInlineFormSet(self.request.POST, self.request.FILES, instance=self.object)
-        if images_formset.is_valid():
-            images_formset.save()
-        return response
-
+        ctx = self.get_context_data()
+        inlines = ctx['inlines']
+        if inlines.is_valid():
+            self.object = form.save()
+            inlines.instance = self.object
+            inlines.save()
+            return redirect(self.success_url)
+        else:
+            return self.render_to_response(self.get_context_data(form=form))
 
 class ProductAdminDeleteView(StaffRequiredMixin, DeleteView):
     model = Product
     template_name = 'painel/produtos/confirm_delete.html'
     success_url = reverse_lazy('painel:produtos_list')
 
-
 class ProductToggleActiveView(StaffRequiredMixin, View):
     def post(self, request, pk):
-        produto = Product.objects.get(pk=pk)
-        produto.is_active = not produto.is_active
-        produto.save(update_fields=['is_active'])
+        product = get_object_or_404(Product, pk=pk)
+        product.is_active = not product.is_active
+        product.save()
         return redirect('painel:produtos_list')
-
 
 class ProductToggleFeaturedView(StaffRequiredMixin, View):
     def post(self, request, pk):
-        produto = Product.objects.get(pk=pk)
-        produto.is_featured = not produto.is_featured
-        produto.save(update_fields=['is_featured'])
+        product = get_object_or_404(Product, pk=pk)
+        product.is_featured = not product.is_featured
+        product.save()
         return redirect('painel:produtos_list')
-
 
 class ProductAdjustStockView(StaffRequiredMixin, View):
     def post(self, request, pk):
-        try:
-            delta = int(request.POST.get('delta', '0'))
-        except ValueError:
-            return HttpResponseForbidden('Parâmetro inválido')
-        produto = Product.objects.get(pk=pk)
-        new_qty = max(0, produto.stock_quantity + delta)
-        produto.stock_quantity = new_qty
-        produto.save(update_fields=['stock_quantity'])
+        product = get_object_or_404(Product, pk=pk)
+        quantity = int(request.POST.get('quantity', 0))
+        operation = request.POST.get('operation') # 'add', 'subtract', 'set'
+        
+        if operation == 'add':
+            product.stock_quantity += quantity
+        elif operation == 'subtract':
+            product.stock_quantity = max(0, product.stock_quantity - quantity)
+        elif operation == 'set':
+            product.stock_quantity = max(0, quantity)
+            
+        product.save(update_fields=['stock_quantity'])
         return redirect('painel:produtos_list')
+
+# Coupon Views
+
+class CouponAdminListView(StaffRequiredMixin, ListView):
+    model = Coupon
+    template_name = 'painel/cupons/list.html'
+    context_object_name = 'coupons'
+    paginate_by = 20
+    ordering = ['-valid_to']
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        q = self.request.GET.get('q')
+        if q:
+            qs = qs.filter(code__icontains=q)
+        return qs
+
+class CouponAdminCreateView(StaffRequiredMixin, CreateView):
+    model = Coupon
+    form_class = CouponForm
+    template_name = 'painel/cupons/form.html'
+    success_url = reverse_lazy('painel:cupons_list')
+
+class CouponAdminUpdateView(StaffRequiredMixin, UpdateView):
+    model = Coupon
+    form_class = CouponForm
+    template_name = 'painel/cupons/form.html'
+    success_url = reverse_lazy('painel:cupons_list')
+
+class CouponAdminDeleteView(StaffRequiredMixin, DeleteView):
+    model = Coupon
+    template_name = 'painel/cupons/confirm_delete.html'
+    success_url = reverse_lazy('painel:cupons_list')
+
+class CouponToggleActiveView(StaffRequiredMixin, View):
+    def post(self, request, pk):
+        coupon = get_object_or_404(Coupon, pk=pk)
+        coupon.active = not coupon.active
+        coupon.save()
+        return redirect('painel:cupons_list')
