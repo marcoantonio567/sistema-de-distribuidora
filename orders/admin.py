@@ -38,21 +38,21 @@ class ShippingAddressInline(admin.StackedInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display = ['order_number', 'customer_name', 'customer_email', 'total_amount_display', 'status_badge', 'created_at']
-    list_filter = ['status', 'created_at', 'updated_at']
+    list_display = ['order_number', 'customer_name', 'customer_email', 'payment_method', 'total_amount_display', 'status_badge', 'created_at']
+    list_filter = ['status', 'payment_method', 'created_at', 'updated_at']
     search_fields = ['order_number', 'customer_name', 'customer_email', 'customer_phone']
     readonly_fields = ['order_number', 'created_at', 'updated_at', 'total_amount_display', 'get_total_items']
     inlines = [ShippingAddressInline, OrderItemInline, OrderStatusHistoryInline]
     
     fieldsets = (
         ('Informações do Pedido', {
-            'fields': ('order_number', 'status', 'created_at', 'updated_at')
+            'fields': ('order_number', 'status', 'payment_method', 'created_at', 'updated_at')
         }),
         ('Cliente', {
             'fields': ('customer_name', 'customer_email', 'customer_phone')
         }),
         ('Valores', {
-            'fields': ('subtotal', 'shipping_cost', 'total_amount_display')
+            'fields': ('subtotal', 'shipping_cost', 'coupon', 'discount_amount', 'total_amount_display')
         }),
         ('Informações Adicionais', {
             'fields': ('notes',),

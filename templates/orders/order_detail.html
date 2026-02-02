@@ -62,6 +62,12 @@
           <span>Subtotal</span>
           <strong>R$ {{ order.subtotal|floatformat:2 }}</strong>
         </div>
+        {% if order.discount_amount > 0 %}
+        <div class="d-flex justify-content-between mb-2 text-success">
+          <span>Desconto</span>
+          <strong>- R$ {{ order.discount_amount|floatformat:2 }}</strong>
+        </div>
+        {% endif %}
         <div class="d-flex justify-content-between mb-2">
           <span>Frete</span>
           <strong>R$ {{ order.shipping_cost|floatformat:2 }}</strong>

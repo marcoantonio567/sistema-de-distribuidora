@@ -10,7 +10,7 @@ from django.template.loader import render_to_string
 from django.utils.html import strip_tags
 from django.conf import settings
 from django.db import transaction
-from .models import Order, OrderItem, ShippingAddress
+from .models import Order, OrderItem, ShippingAddress, Coupon
 from cart.models import Cart
 from cart.views import CartMixin
 from products.models import Product
@@ -52,6 +52,8 @@ class CheckoutView(CartMixin, TemplateView):
             customer_name = request.POST.get('customer_name', '').strip()
             customer_email = request.POST.get('customer_email', '').strip()
             customer_phone = request.POST.get('customer_phone', '').strip()
+            payment_method = request.POST.get('payment_method', 'credit_card')
+            coupon_code = request.POST.get('coupon_code', '').strip()
             
             # Shipping address
             street = request.POST.get('street', '').strip()
@@ -85,6 +87,21 @@ class CheckoutView(CartMixin, TemplateView):
             if '@' not in customer_email or '.' not in customer_email.split('@')[-1]:
                 messages.error(request, 'Por favor, insira um email válido.')
                 return self.render_to_response(self.get_context_data())
+
+            # Validate coupon
+            coupon = None
+            discount_amount = 0
+            if coupon_code:
+                try:
+                    coupon = Coupon.objects.get(code=coupon_code)
+                    if coupon.is_valid:
+                        discount_amount = (cart.total_amount * coupon.discount_percent) / 100
+                    else:
+                        messages.warning(request, 'Cupom inválido ou expirado.')
+                        coupon = None
+                except Coupon.DoesNotExist:
+                    messages.warning(request, 'Cupom não encontrado.')
+                    coupon = None
             
             # Create order with transaction
             with transaction.atomic():
@@ -96,7 +113,10 @@ class CheckoutView(CartMixin, TemplateView):
                     customer_email=customer_email,
                     customer_phone=customer_phone,
                     subtotal=cart.total_amount,
-                    total_amount=cart.total_amount,  # Add shipping calculation here if needed
+                    discount_amount=discount_amount,
+                    total_amount=cart.total_amount - discount_amount,
+                    payment_method=payment_method,
+                    coupon=coupon,
                 )
                 
                 # Create shipping address

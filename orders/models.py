@@ -35,6 +35,12 @@ class Order(models.Model):
         ('completed', 'Concluído'),
         ('cancelled', 'Cancelado'),
     ]
+
+    PAYMENT_METHOD_CHOICES = [
+        ('credit_card', 'Cartão de Crédito'),
+        ('pix', 'PIX'),
+        ('pay_on_delivery', 'Pagamento na Entrega'),
+    ]
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     order_number = models.CharField('Número do Pedido', max_length=20, unique=True, db_index=True)
@@ -56,12 +62,22 @@ class Order(models.Model):
     
     # Order status
     status = models.CharField('Status', max_length=20, choices=STATUS_CHOICES, default='processing')
+    payment_method = models.CharField('Forma de Pagamento', max_length=20, choices=PAYMENT_METHOD_CHOICES, default='credit_card')
     
     # Amounts
     subtotal = models.DecimalField('Subtotal', max_digits=10, decimal_places=2, default=0)
     shipping_cost = models.DecimalField('Frete', max_digits=10, decimal_places=2, default=0)
+    discount_amount = models.DecimalField('Desconto', max_digits=10, decimal_places=2, default=0)
     total_amount = models.DecimalField('Total', max_digits=10, decimal_places=2, default=0)
     
+    coupon = models.ForeignKey(
+        Coupon,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        verbose_name='Cupom de Desconto'
+    )
+
     # Additional information
     notes = models.TextField('Observações', blank=True)
     
