@@ -25,4 +25,8 @@ urlpatterns = [
     path('pedidos/', admin_views.OrderAdminListView.as_view(), name='orders_list'),
     path('pedidos/<slug:order_number>/', admin_views.OrderAdminDetailView.as_view(), name='orders_detail'),
     path('pedidos/<slug:order_number>/status/', admin_views.OrderUpdateStatusView.as_view(), name='orders_update_status'),
+    
+    # Clientes
+    path('clientes/', admin_views.ClientAdminListView.as_view(), name='clientes_list'),
+    path('clientes/<int:pk>/', admin_views.ClientAdminDetailView.as_view(), name='clientes_detail'),
 ]

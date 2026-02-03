@@ -3,11 +3,13 @@ from django.urls import reverse_lazy
 from django.views.generic import TemplateView, ListView, CreateView, UpdateView, DeleteView, View, DetailView
 from django.shortcuts import redirect, get_object_or_404
 from django.db.models import Q, Sum, Count, F
+from django.contrib.auth.models import User
 from django.db.models.functions import TruncDate
 from django.utils import timezone
 from .models import Product, Category, Brand
 from .forms import ProductForm, ProductImageInlineFormSet
 from orders.models import Order, OrderItem, Coupon, OrderStatusHistory
+from accounts.models import UserProfile
 from orders.forms import CouponForm
 import json
 
@@ -300,4 +302,49 @@ class OrderUpdateStatusView(StaffRequiredMixin, View):
             order.update_status(new_status, notes)
             
         return redirect('painel:orders_detail', order_number=order.order_number)
+
+class ClientAdminListView(StaffRequiredMixin, ListView):
+    model = User
+    template_name = 'painel/clientes/list.html'
+    context_object_name = 'users'
+    paginate_by = 20
+
+    def get_queryset(self):
+        qs = User.objects.filter(is_superuser=False).select_related('profile')
+        q = self.request.GET.get('q')
+        
+        if q:
+            qs = qs.filter(
+                Q(username__icontains=q) |
+                Q(email__icontains=q) |
+                Q(first_name__icontains=q) |
+                Q(last_name__icontains=q) |
+                Q(profile__phone__icontains=q)
+            )
+            
+        qs = qs.annotate(
+            order_count=Count('order'),
+            total_spent=Sum('order__total_amount', filter=Q(order__status='completed'))
+        ).order_by('-date_joined')
+        
+        return qs
+
+class ClientAdminDetailView(StaffRequiredMixin, DetailView):
+    model = User
+    template_name = 'painel/clientes/detail.html'
+    context_object_name = 'client'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.object
+        
+        # Last orders
+        context['last_orders'] = Order.objects.filter(user=user).order_by('-created_at')[:10]
+        
+        # Stats
+        context['total_orders'] = Order.objects.filter(user=user).count()
+        context['completed_orders'] = Order.objects.filter(user=user, status='completed').count()
+        context['total_spent'] = Order.objects.filter(user=user, status='completed').aggregate(sum=Sum('total_amount'))['sum'] or 0
+        
+        return context
 

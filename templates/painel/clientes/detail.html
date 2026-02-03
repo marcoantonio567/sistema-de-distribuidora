@@ -1,0 +1,111 @@
+{% extends "painel/base_painel.html" %}
+{% load static %}
+
+{% block painel_content %}
+<div class="mb-3">
+    <a href="{% url 'painel:clientes_list' %}" class="btn btn-outline-secondary">&larr; Voltar para Lista</a>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Dados do Cliente</h5>
+            </div>
+            <div class="card-body">
+                <h4 class="card-title">{{ client.get_full_name|default:client.username }}</h4>
+                <p class="text-muted">{{ client.email }}</p>
+                <hr>
+                <p><strong>Telefone:</strong> {{ client.profile.phone|default:"Não informado" }}</p>
+                <p><strong>Data de Cadastro:</strong> {{ client.date_joined|date:"d/m/Y H:i" }}</p>
+                <p><strong>Último Login:</strong> {{ client.last_login|date:"d/m/Y H:i"|default:"Nunca" }}</p>
+            </div>
+        </div>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Endereço Principal</h5>
+            </div>
+            <div class="card-body">
+                {% if client.profile.address_street %}
+                <address>
+                    {{ client.profile.address_street }}, {{ client.profile.address_number }}
+                    {% if client.profile.address_complement %} - {{ client.profile.address_complement }}{% endif %}<br>
+                    {{ client.profile.neighborhood }}<br>
+                    {{ client.profile.city }} - {{ client.profile.state }}<br>
+                    CEP: {{ client.profile.zip_code }}
+                </address>
+                {% else %}
+                <p class="text-muted">Endereço não cadastrado.</p>
+                {% endif %}
+            </div>
+        </div>
+        
+        <div class="card mb-4">
+            <div class="card-header">
+                <h5 class="mb-0">Resumo de Pedidos</h5>
+            </div>
+            <div class="card-body">
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Total de Pedidos
+                        <span class="badge bg-primary rounded-pill">{{ total_orders }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Pedidos Concluídos
+                        <span class="badge bg-success rounded-pill">{{ completed_orders }}</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        Total Gasto
+                        <span class="badge bg-secondary rounded-pill">R$ {{ total_spent|floatformat:2 }}</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Últimos Pedidos</h5>
+            </div>
+            <div class="card-body p-0">
+                <div class="table-responsive">
+                    <table class="table table-striped table-hover mb-0">
+                        <thead>
+                            <tr>
+                                <th>Número</th>
+                                <th>Data</th>
+                                <th>Status</th>
+                                <th>Total</th>
+                                <th>Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for order in last_orders %}
+                            <tr>
+                                <td>{{ order.order_number }}</td>
+                                <td>{{ order.created_at|date:"d/m/Y H:i" }}</td>
+                                <td>
+                                    <span class="badge {% if order.status == 'completed' %}bg-success{% elif order.status == 'processing' %}bg-primary{% elif order.status == 'out_for_delivery' %}bg-warning{% elif order.status == 'cancelled' %}bg-danger{% else %}bg-secondary{% endif %}">
+                                        {{ order.get_status_display }}
+                                    </span>
+                                </td>
+                                <td>R$ {{ order.total_amount|floatformat:2 }}</td>
+                                <td>
+                                    <a href="{% url 'painel:orders_detail' order.order_number %}" class="btn btn-sm btn-outline-primary">Ver</a>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="5" class="text-center py-4">Nenhum pedido encontrado.</td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
