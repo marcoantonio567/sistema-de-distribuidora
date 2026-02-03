@@ -11,6 +11,7 @@ from .forms import ProductForm, ProductImageInlineFormSet
 from orders.models import Order, OrderItem, Coupon, OrderStatusHistory
 from accounts.models import UserProfile
 from orders.forms import CouponForm
+from django.http import JsonResponse
 import json
 
 
@@ -19,6 +20,41 @@ class StaffRequiredMixin(LoginRequiredMixin, UserPassesTestMixin):
 
     def test_func(self):
         return self.request.user.is_staff
+
+
+class CategoryCreateAPIView(StaffRequiredMixin, View):
+    def post(self, request, *args, **kwargs):
+        try:
+            data = json.loads(request.body)
+            name = data.get('name')
+            if not name:
+                return JsonResponse({'error': 'Nome é obrigatório'}, status=400)
+            
+            category = Category.objects.create(name=name)
+            return JsonResponse({
+                'id': category.id,
+                'name': category.name,
+                'success': True
+            })
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+
+class CategoryDeleteAPIView(StaffRequiredMixin, View):
+    def post(self, request, pk, *args, **kwargs):
+        try:
+            category = get_object_or_404(Category, pk=pk)
+            # Check if it has products
+            if category.product_set.exists():
+                return JsonResponse({'error': 'Não é possível excluir: existem produtos nesta categoria.'}, status=400)
+            
+            # Check if it has children
+            if category.children.exists():
+                 return JsonResponse({'error': 'Não é possível excluir: existem subcategorias associadas.'}, status=400)
+
+            category.delete()
+            return JsonResponse({'success': True})
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
 
 
 class PainelHomeView(StaffRequiredMixin, TemplateView):

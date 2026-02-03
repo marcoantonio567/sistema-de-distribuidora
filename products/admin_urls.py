@@ -14,6 +14,10 @@ urlpatterns = [
     path('produtos/<int:pk>/destaque/', admin_views.ProductToggleFeaturedView.as_view(), name='produtos_toggle_featured'),
     path('produtos/<int:pk>/estoque/ajustar/', admin_views.ProductAdjustStockView.as_view(), name='produtos_adjust_stock'),
     
+    # API Categories
+    path('api/categorias/criar/', admin_views.CategoryCreateAPIView.as_view(), name='api_category_create'),
+    path('api/categorias/<int:pk>/excluir/', admin_views.CategoryDeleteAPIView.as_view(), name='api_category_delete'),
+    
     # Cupons
     path('cupons/', admin_views.CouponAdminListView.as_view(), name='cupons_list'),
     path('cupons/novo/', admin_views.CouponAdminCreateView.as_view(), name='cupons_create'),

@@ -28,4 +28,140 @@
     <a href="{% url 'painel:produtos_list' %}" class="btn btn-secondary">Cancelar</a>
   </div>
 </form>
+
+<!-- Modal Nova Categoria -->
+<div class="modal fade" id="newCategoryModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Nova Categoria</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <input type="text" id="new-category-name" class="form-control" placeholder="Nome da Categoria">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-primary" id="btn-save-category">Salvar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const categorySelect = document.querySelector('select[name="category"]');
+    if (!categorySelect) return;
+
+    // Insert controls
+    const container = categorySelect.closest('div') || categorySelect.parentElement;
+    
+    const toolbar = document.createElement('div');
+    toolbar.className = 'mt-2 mb-3 d-flex gap-2';
+    toolbar.innerHTML = `
+        <button type="button" class="btn btn-sm btn-outline-success" id="btn-add-cat">
+            <i class="bi bi-plus-circle"></i> Nova Categoria
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-danger" id="btn-del-cat">
+            <i class="bi bi-trash"></i> Excluir Selecionada
+        </button>
+    `;
+    
+    // Insert after the select (or its container if it's wrapped)
+    container.insertAdjacentElement('afterend', toolbar);
+
+    const modalElement = document.getElementById('newCategoryModal');
+    let modal;
+    
+    // Initialize bootstrap modal if available
+    if (typeof bootstrap !== 'undefined' && bootstrap.Modal) {
+        modal = new bootstrap.Modal(modalElement);
+    }
+
+    document.getElementById('btn-add-cat').addEventListener('click', (e) => {
+        e.preventDefault();
+        if (modal) {
+            document.getElementById('new-category-name').value = '';
+            modal.show();
+        } else {
+            // Fallback if bootstrap JS not loaded or different version
+            const name = prompt("Nome da nova categoria:");
+            if(name) saveCategory(name);
+        }
+    });
+
+    document.getElementById('btn-save-category').addEventListener('click', () => {
+        const name = document.getElementById('new-category-name').value;
+        saveCategory(name);
+    });
+
+    async function saveCategory(name) {
+        if(!name) return;
+        
+        try {
+            const response = await fetch('{% url "painel:api_category_create" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({name: name})
+            });
+            const data = await response.json();
+            if(data.success) {
+                const option = new Option(data.name, data.id, true, true);
+                categorySelect.add(option);
+                categorySelect.value = data.id; 
+                if(modal) modal.hide();
+                // alert('Categoria criada com sucesso!');
+            } else {
+                alert('Erro: ' + data.error);
+            }
+        } catch(e) {
+            console.error(e);
+            alert('Erro ao criar categoria');
+        }
+    }
+
+    document.getElementById('btn-del-cat').addEventListener('click', async (e) => {
+        e.preventDefault();
+        const id = categorySelect.value;
+        if(!id) {
+            alert('Selecione uma categoria para excluir');
+            return;
+        }
+        
+        if(!confirm('Tem certeza que deseja excluir esta categoria? Esta ação não pode ser desfeita.')) return;
+
+        try {
+            // Replace dummy ID with real ID
+            const url = '{% url "painel:api_category_delete" 0 %}'.replace('0', id);
+            
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': '{{ csrf_token }}'
+                }
+            });
+            const data = await response.json();
+            if(data.success) {
+                // Remove option
+                for(let i=0; i<categorySelect.options.length; i++) {
+                    if(categorySelect.options[i].value == id) {
+                        categorySelect.remove(i);
+                        break;
+                    }
+                }
+                categorySelect.value = '';
+                alert('Categoria excluída com sucesso!');
+            } else {
+                alert('Erro: ' + data.error);
+            }
+        } catch(e) {
+            console.error(e);
+            alert('Erro ao excluir categoria');
+        }
+    });
+});
+</script>
 {% endblock %}
